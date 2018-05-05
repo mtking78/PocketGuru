@@ -1,27 +1,30 @@
 // *** Burger Model
 // =============================================================
 
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
     var Task = sequelize.define("Task", {
         // *** delete/change these to Tasks
-    //     burger_name: {
-    //         type: DataTypes.STRING,
-    //         allowNull: false,
-    //         validate: {len: [1, 50]}
-    //     },
-    //     devoured: {
-    //         type: DataTypes.BOOLEAN,
-    //         defaultValue: false
-    //     }
+        task_name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        completed: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: false
+        },
+        value: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        estimated_time: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        }
+
     });
-
-    // Burger.associate = function(models) {
-    //     Burger.belongsTo(models.Eater, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
-
     return Task;
 };

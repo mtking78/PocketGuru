@@ -30,13 +30,8 @@ app.engine("handlebars", exphbs({
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-<<<<<<< HEAD
 // =============================================================
 var routes = require("./controllers/controller-model.js");
-=======
-var routes = require("./controllers/controller-model.js");
-
->>>>>>> 169f5530295701baf51a1315130783518af8de84
 app.use(routes);
 
 // Requiring our models for syncing
@@ -45,7 +40,7 @@ var db = require("./models");
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync().then(function() {
+db.sequelize.sync().then(function () {
     app.listen(PORT, function () {
         console.log("Server listening on: http://localhost:" + PORT);
     });
