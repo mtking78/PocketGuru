@@ -1,7 +1,11 @@
 {
     "development": {
       "username": "root",
+
       "password": "DexterMorgan",
+
+      "password": "2631mountain",
+
       "database": "lifecoach_db",
       "host": "127.0.0.1",
       "dialect": "mysql"

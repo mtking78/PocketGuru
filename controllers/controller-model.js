@@ -8,18 +8,19 @@ var db = require("../models");
 // =============================================================
 // Index Page (render all burgers to html)
 router.get("/", function (req, res) {
-    db.Burger.findAll({}).then(function(results) {
-        var hbsObject = {
-            burgers: results
-        };
+    // db.Task.findAll({}).then(function(results) {
+    //     var hbsObject = {
+    //         tasks: results
+    //     };
         // console.log(hbsObject);
-        res.render("index", hbsObject);
-    });
+        // res.render("index", hbsObject);
+        res.render("index");
+    // });
 });
 
 // Add new burger to the db.
-router.post("/api/burgers", function (req, res) {
-    db.Burger.create({
+router.post("/api/tasks", function (req, res) {
+    db.Task.create({
         burger_name: req.body.burger_name, 
         devoured: req.body.devoured
     }).then(function(results) {
@@ -29,25 +30,25 @@ router.post("/api/burgers", function (req, res) {
 });
 
 // Set burger devoured status to true.
-router.put("/api/burgers/:id", function(req, res) {
-    db.Burger.update({
+router.put("/api/tasks/:id", function(req, res) {
+    db.Task.update({
         devoured: req.body.devoured
     }, {where: {
         id: req.params.id
-    }}).then(function(dbBurger) {
-        if (dbBurger.changedRows === 0) {
+    }}).then(function(dbTask) {
+        if (dbTask.changedRows === 0) {
             // If no rows were changed, then the ID must not exist, so 404.
             return res.status(404).end();
         } else {
-            res.json(dbBurger);
+            res.json(dbTask);
             res.status(200).end();
         }
     });
 });
 
 // Delete burger from db.
-router.delete("/api/burgers/:id", function(req, res) {
-    db.Burger.destroy({where: {
+router.delete("/api/tasks/:id", function(req, res) {
+    db.Task.destroy({where: {
         id: req.params.id
     }}).then(function(results) {
         if (results.changedRows === 0) {
