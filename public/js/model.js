@@ -2,45 +2,47 @@
 
 $(function () {
 
-    // Create burger in the database.
+    // Create task in the database.
     $(".create-form").on("submit", function (event) {
         event.preventDefault();
 
-        var newBurger = {
-            burger_name: $("#newburger").val().trim(),
-            devoured: 0
-            //sets default to false
+        var newTask = {
+            task_name: $("#newtask").val().trim(),
+            category: $("#category").val().trim(),
+            completed: 0,
+            value: $("#value").val().trim(),
+            estimated_time: $("#time").val().trim(),
         };
 
-        $.ajax("/api/burgers", {
+        $.ajax("/api/tasks", {
             type: "POST",
-            data: newBurger
+            data: newTask
         }).then(function () {
-                console.log("You've added a burger!");
+                console.log("You've added a task!");
                 location.reload();
         });
     });
 
-    // Update burger to true on devoured.
-    $(".devour").on("click", function (event) {
+    // Update task to true on completed.
+    $(".complete").on("click", function (event) {
         event.preventDefault();
         var id = $(this).data("id");
-        var isDevoured = {
-            devoured: 1
+        var taskStatus = {
+            completed: true
         }
 
         // Send the PUT request.
-        $.ajax("/api/burgers/" + id, {
+        $.ajax("/api/tasks/" + id, {
             type: "PUT",
-            data: isDevoured
+            data: taskStatus
         }).then(function () {
-            console.log("You devoured that burger like a beast");
+            console.log("Task completed");
             location.reload();
         });
     });
 
-    // Delete burger from the database.
-    $(".trashburger").on("click", function(event) {
+    // Delete task from the database.
+    $(".remove").on("click", function(event) {
         event.preventDefault();
 
         var id = $(this).data("id");
@@ -48,7 +50,7 @@ $(function () {
         // Send the DELETE request.
         $.ajax({
             type: "DELETE",
-            url: "/api/burgers/" + id
+            url: "/api/tasks/" + id
         }).then(location.reload());
     });
 
