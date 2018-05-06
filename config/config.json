@@ -1,10 +1,14 @@
 {
     "development": {
       "username": "root",
+
  
       "password": "DexterMorgan",
 
-      "password": "2631mountain",
+     
+
+
+      "password": null,
 
       "database": "lifecoach_db",
       "host": "127.0.0.1",
