@@ -22,18 +22,26 @@
 <div class="container">
 
     <div class="jumbotron">
-        <h1 id="color-override">Eat the Burger</h1>
-        <p id="color-override">Make burgers, eat burgers.</p>
+        <h1 id="color-override">H1 Title</h1>
+        <p id="color-override">P text</p>
         <br>
-        <h2 id="color-override">Make a Burger</h2>
+        <h2 id="color-override">Create a New Task</h2>
         <panel>
             <form class="create-form">
                 <div class="form-group">
-                    <label for="newburger" id="color-override">New Burger:</label>
-                    <input type="text" id="newburger" name="burger"> {{!-- Create a button in index.handlebars that will submit the user input into the database. --}}
-                    <button type="submit" class="btn btn-success" id="addburger">
-                        <span class="fa fa-thumbs-up"></span>
-                    </button>
+                    <label for="newtask" id="color-override">New Task:</label>
+                    <input type="text" id="newtask" name="task">
+                    <br>
+                    <label for="category" id="color-override">Category:</label>
+                    <input type="text" id="category" name="category">
+                    <br>
+                    <label for="value" id="color-override">Value:</label>
+                    <input type="number" min="1" max="10" id="value" name="quantity">
+                    <br>
+                    <label for="time" id="color-override">Estimated Time:</label>
+                    <input type="number" min="1" max="60" id="time" name="time">
+                    <br>
+                    <button type="submit" class="btn btn-success" id="addtask"><span class="fa fa-thumbs-up"></span></button>
                 </div>
             </form>
         </panel>
@@ -42,43 +50,37 @@
 
     <div class="row">
 
-        <!-- Undevoured Burgers -->
+        <!-- Tasks to do -->
         <div class="col-sm-6">
             <div class="panel panel-default">
-                <div class="panel-heading" id="lefthead">
-                    <strong>New Burgers</strong>
-                </div>
+                <div class="panel-heading" id="lefthead"><strong>New Tasks</strong></div>
                 <div class="panel-body">
                     <ul>
-                        {{#each burgers}} {{#unless devoured}}
-                        <span>
-                            <strong> {{this.id}} - {{this.burger_name}} </strong>
-                        </span>
-                        <button type="button" class="devour btn btn-warning" id="eatbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}">
-                            <span class="fa fa-cutlery"></span>
-                        </button>
-                        <hr> {{/unless}} {{/each}}
+                        {{#each tasks}}
+                            {{#unless completed}}
+                                <span><strong> {{this.id}} - {{this.task_name}} - {{this.category}} </strong></span>
+                                <button type="button" class="complete btn btn-warning" id="complete" data-id="{{this.id}}" data-newCompleted="{{completed}}"><span class="fa fa-check"></span></button>
+                                <hr>
+                            {{/unless}}
+                        {{/each}}
                     </ul>
                 </div>
             </div>
         </div>
 
-        <!-- Devoured Burgers -->
+        <!-- Completed Tasks -->
         <div class="col-sm-6">
             <div class="panel panel-default">
-                <div class="panel-heading" id="righthead">
-                    <strong>Devoured Burgers</strong>
-                </div>
+                <div class="panel-heading" id="righthead"><strong>Completed Tasks</strong></div>
                 <div class="panel-body">
                     <ul>
-                        {{#each burgers}} {{#if devoured}}
-                        <span>
-                            <strong> {{this.id}} - {{this.burger_name}} </strong>
-                        </span>
-                        <button type="button" class="trashburger btn btn-danger" id="trashbutton" data-id="{{this.id}}" data-newDevoured="{{devour}}">
-                            <span class="fa fa-trash"></span>
-                        </button>
-                        <hr> {{/if}} {{/each}}
+                        {{#each tasks}}
+                            {{#if completed}}
+                                <span><strong> {{this.id}} - {{this.task_name}} - {{this.category}} </strong></span>
+                                <button type="button" class="remove btn btn-danger" id ="remove" data-id="{{this.id}}"><span class="fa fa-trash"></span></button>
+                                <hr>
+                            {{/if}}
+                        {{/each}}
                     </ul>
                 </div>
             </div>
@@ -108,14 +110,10 @@
                             <span class="fa fa-check"></span>
                         </button>
                     </div>
-                </div>
-                <!-- End of Modal Content -->
+                </div><!-- End of Modal Content -->
             </div>
-        </div>
-        <!-- End of Modal -->
+        </div><!-- End of Modal -->
 
-    </div>
-    <!-- /row -->
+    </div><!-- /row -->
 
-</div>
-<!-- /container -->
+</div><!-- /container -->
