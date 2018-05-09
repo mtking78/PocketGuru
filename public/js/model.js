@@ -55,3 +55,15 @@ $(function () {
     });
 
 });
+
+$(document).ready(function() {
+    // Summarize points earned from completed tasks
+    function addExercisePoints() {
+        connection.query("SELECT category='Exercise', SUM(value) FROM lifecoach_db.tasks WHERE(completed='1')", function(err, res) {
+            if (err) throw err;
+
+            var sum = res.SUM(value);
+            $("#sumdisplay").html(sum);
+        });
+    };
+})

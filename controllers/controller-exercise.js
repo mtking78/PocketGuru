@@ -17,13 +17,44 @@ router.get("/exercise", function (req, res) {
         var hbsObject = {
             tasks: results
         };
-        // console.log(hbsObject);
+        // console.log(results);
         res.render("exercise", hbsObject);
-
-        // !!! Only use line below to display WITHOUT data.
-        // res.render("index");
     });
 });
+
+// router.get("/exercise", function (req, res) {
+//     db.Task.sum("value", {
+//         where: {
+//             category: "Exercise",
+//             completed: 1
+//         }
+//     }).then(function(results) {
+//         var hbsObject = {
+//             tasks: results
+//         };
+//         console.log(results);
+//         // $("#sumdisplay").html(results);
+//         res.render("exercise", hbsObject);
+//     });
+// });
+
+// router.get("/exercise", function (req, res) {
+//     db.Task.findAll({
+//         where: {
+//             category: "Exercise"
+//         }
+//     }).then(function(exerciseTasks) {
+//         db.Task.sum("value", {
+//             where: {
+//                 category: "Exercise",
+//                 completed: 1
+//             }
+//         }).then(function(exercisePoints) {
+//             console.log(req.body);
+//             res.render("exercise", {tasks: exerciseTasks, tasks: exercisePoints});
+//         });
+//     });
+// });
 
 // Add new task to the db.
 router.post("/exercise/create", function (req, res) {

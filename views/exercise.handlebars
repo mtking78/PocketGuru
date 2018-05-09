@@ -4,25 +4,41 @@
         <h1 id="color-override">Exercise</h1>
         <br>
         <h2 id="color-override">Create a New Exercise Routine</h2>
-        <panel>
-            <form class="create-form">
-                <div class="form-group">
-                    <label for="newtask" id="color-override">New Exercise Activity:</label>
-                    <input type="text" id="newtask" name="task_name">
-                    <br>
-                    <input type="hidden" type="text" id="category" value="Exercise">
-                    <label for="value" id="color-override">Value:</label>
-                    <input type="number" min="1" max="10" id="value" name="value">
-                    <br>
-                    <label for="time" id="color-override">Estimated Time:</label>
-                    <input type="number" min="1" max="60" id="time" name="estimated_time">
-                    <br>
-                    <button type="submit" class="btn btn-success" id="addtask">
-                        <span class="fa fa-thumbs-up"></span>
-                    </button>
-                </div>
-            </form>
-        </panel>
+        <div class="row">
+
+            <div class="col-sm-9">
+                <panel>
+                    <form class="create-form">
+                        <div class="form-group">
+                            <label for="newtask" id="color-override">New Exercise Activity:</label>
+                            <input type="text" id="newtask" name="task_name">
+                            <br>
+                            <input type="hidden" type="text" id="category" value="Exercise">
+                            <label for="value" id="color-override">Value:</label>
+                            <input type="number" min="1" max="10" id="value" name="value">
+                            <br>
+                            <label for="time" id="color-override">Estimated Time:</label>
+                            <input type="number" min="1" max="60" id="time" name="estimated_time">
+                            <br>
+                            <button type="submit" class="btn btn-success" id="addtask">
+                                <span class="fa fa-thumbs-up"></span>
+                            </button>
+                        </div>
+                    </form>
+                </panel>
+            </div>
+
+            <div class="col-sm-9">
+                <panel>
+                    <div class="well">
+                        <h3>Total Points</h3>
+                        <!-- need to display sum (no name, just an integer) -->
+                        <span id="sumdisplay">{{#each tasks}}{{???}}{{/each}}</span>
+                    </div>
+                </panel>
+            </div>
+
+        </div>
     </div>
     <!-- /jumbotron -->
 
@@ -104,3 +120,17 @@
 
     </div><!-- /row -->
 </div><!-- /container -->
+{{!-- <script type="text/javascript">
+$(document).ready(function() {
+    // Summarize points earned from completed tasks
+    function addExercisePoints() {
+        connection.query("SELECT category='Exercise', SUM(value) FROM lifecoach_db.tasks WHERE(completed='1')", function(err, res) {
+            if (err) throw err;
+
+            var sum = res.SUM(value);
+            $("#sumdisplay").html(sum);
+        });
+    };
+    addExercisePoints()
+})
+</script> --}}
