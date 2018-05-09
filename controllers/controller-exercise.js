@@ -9,7 +9,11 @@ var db = require("../models");
 // Index Page (render all burgers to html)
 
 router.get("/exercise", function (req, res) {
-    db.Task.findAll({}).then(function(results) {
+    db.Task.findAll({
+        where: {
+            category: "Exercise"
+        }
+    }).then(function(results) {
         var hbsObject = {
             tasks: results
         };
@@ -22,7 +26,8 @@ router.get("/exercise", function (req, res) {
 });
 
 // Add new task to the db.
-router.post("/api/tasks", function (req, res) {
+router.post("/exercise/create", function (req, res) {
+    console.log(req.body);
     db.Task.create({
         task_name: req.body.task_name,
         category: req.body.category,
@@ -34,7 +39,7 @@ router.post("/api/tasks", function (req, res) {
 });
 
 // Set task completed status to true.
-router.put("/api/tasks/:id", function(req, res) {
+router.put("/exercise/update", function(req, res) {
     db.Task.update({
         completed: req.body.completed
     }, {where: {
@@ -51,7 +56,7 @@ router.put("/api/tasks/:id", function(req, res) {
 });
 
 // Delete task from db.
-router.delete("/api/tasks/:id", function(req, res) {
+router.delete("/exercise/delete", function(req, res) {
     db.Task.destroy({where: {
         id: req.params.id
     }}).then(function(results) {

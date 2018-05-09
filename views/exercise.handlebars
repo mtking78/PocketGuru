@@ -1,0 +1,106 @@
+<div class="container">
+
+    <div class="jumbotron">
+        <h1 id="color-override">Exercise</h1>
+        <br>
+        <h2 id="color-override">Create a New Exercise Routine</h2>
+        <panel>
+            <form class="create-form">
+                <div class="form-group">
+                    <label for="newtask" id="color-override">New Exercise Activity:</label>
+                    <input type="text" id="newtask" name="task_name">
+                    <br>
+                    <input type="hidden" type="text" id="category" value="Exercise">
+                    <label for="value" id="color-override">Value:</label>
+                    <input type="number" min="1" max="10" id="value" name="value">
+                    <br>
+                    <label for="time" id="color-override">Estimated Time:</label>
+                    <input type="number" min="1" max="60" id="time" name="estimated_time">
+                    <br>
+                    <button type="submit" class="btn btn-success" id="addtask">
+                        <span class="fa fa-thumbs-up"></span>
+                    </button>
+                </div>
+            </form>
+        </panel>
+    </div>
+    <!-- /jumbotron -->
+
+    <div class="row">
+
+        <!-- Tasks to do -->
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="lefthead">
+                    <strong>New Tasks</strong>
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Points</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {{#each tasks}} {{#unless completed}}
+                            <tr>
+                                <td>{{this.task_name}}</td>
+                                <td>{{this.value}}</td>
+                                <td>{{this.estimated_time}}</td>
+                                <td>
+                                    <button type="button" class="complete btn btn-warning" id="complete" data-id="{{this.id}}" data-newCompleted="{{completed}}">
+                                        <span class="fa fa-check"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        {{/unless}} {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completed Tasks -->
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+
+                <div class="panel-heading" id="righthead">
+                    <strong>Completed Tasks</strong>
+                </div>
+
+                <div class="panel-body">
+                    <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Points</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                        {{#each tasks}} {{#if completed}}
+                            <tr>
+                                <td>{{this.task_name}}</td>
+                                <td>{{this.value}}</td>
+                                <td>{{this.estimated_time}}</td>
+                                <td>
+                                    <button type="button" class="remove btn btn-danger" id="remove" data-id="{{this.id}}">
+                                        <span class="fa fa-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                        {{/if}} {{/each}}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- /row -->
+</div><!-- /container -->
