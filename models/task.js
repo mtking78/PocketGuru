@@ -3,7 +3,6 @@
 
 module.exports = function (sequelize, DataTypes) {
     var Task = sequelize.define("Task", {
-        // *** delete/change these to Tasks
         task_name: {
             type: DataTypes.STRING,
             allowNull: false
@@ -24,7 +23,22 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         }
+        // // Use when user sign-in is functional.
+        // UserId: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false
+        // }
 
     });
+    // // Use when user sign-in is functional.
+    // // Every task must have one user.
+    // Task.associate = function(models) {
+    //     Task.belongsTo(models.User, {
+    //         foreignKey: {
+    //             allowNull: false
+    //         }
+    //     });
+    // };
+
     return Task;
 };

@@ -8,7 +8,7 @@ $(function () {
 
         var newTask = {
             task_name: $("#newtask").val().trim(),
-            category: $("#category").val().trim(),
+            category: $("#category").val(),
             completed: 0,
             value: $("#value").val().trim(),
             estimated_time: $("#time").val().trim(),

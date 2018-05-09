@@ -31,8 +31,9 @@ app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
 // =============================================================
-var routes = require("./controllers/controller-model.js");
-app.use(routes);
+var indexRoutes = require("./controllers/controller-model.js");
+var exerciseRoutes = require("./controllers/controller-exercise.js");
+app.use(indexRoutes, exerciseRoutes);
 
 // Requiring our models for syncing
 // =============================================================
