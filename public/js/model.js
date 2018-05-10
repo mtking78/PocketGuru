@@ -57,13 +57,14 @@ $(function () {
 });
 
 $(document).ready(function() {
-    // Summarize points earned from completed tasks
-    function addExercisePoints() {
-        connection.query("SELECT category='Exercise', SUM(value) FROM lifecoach_db.tasks WHERE(completed='1')", function(err, res) {
-            if (err) throw err;
-
-            var sum = res.SUM(value);
-            $("#sumdisplay").html(sum);
-        });
-    };
-})
+    // On page load, run a function to find the sum of exercise points.
+    $.get("/exercise/points", function(data) {
+        console.log("Sum of exercise points: " + data);
+        $("#sumdisplay").empty();
+        if (!data) {
+            $("#sumdisplay").html("Get to work, slacker.");
+        } else {
+            $("#sumdisplay").html(data);
+        }
+    });
+});

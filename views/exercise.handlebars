@@ -28,10 +28,10 @@
                 </panel>
             </div>
 
-            <div class="col-sm-9">
+            <div class="col-sm-3">
                 <panel>
+                    <h3>Total Points</h3>
                     <div class="well">
-                        <h3>Total Points</h3>
                         <!-- need to display sum (no name, just an integer) -->
                         <span id="sumdisplay">{{#each tasks}}{{???}}{{/each}}</span>
                     </div>
@@ -48,7 +48,7 @@
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading" id="lefthead">
-                    <strong>New Tasks</strong>
+                    <strong>Get Sweaty!</strong>
                 </div>
                 <div class="panel-body">
 
@@ -84,7 +84,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-heading" id="righthead">
-                    <strong>Completed Tasks</strong>
+                    <strong>Today's Achievements</strong>
                 </div>
 
                 <div class="panel-body">
@@ -120,17 +120,3 @@
 
     </div><!-- /row -->
 </div><!-- /container -->
-{{!-- <script type="text/javascript">
-$(document).ready(function() {
-    // Summarize points earned from completed tasks
-    function addExercisePoints() {
-        connection.query("SELECT category='Exercise', SUM(value) FROM lifecoach_db.tasks WHERE(completed='1')", function(err, res) {
-            if (err) throw err;
-
-            var sum = res.SUM(value);
-            $("#sumdisplay").html(sum);
-        });
-    };
-    addExercisePoints()
-})
-</script> --}}
