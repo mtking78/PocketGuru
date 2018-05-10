@@ -1,24 +1,3 @@
-<h1 id="main-header">
-    Unfuck Your Life</h1>
-
-<h2>Meet your day with full presence and power!</h2>
-
-
-<!-- enter on click -->
-<h2>Rewire your brain and boost your body with </h2>
-<ul>
-    <li>Meditation</li>
-    <li>Affirmations</li>
-    <li>Visualization</li>
-    <li>Exercise</li>
-    <li>Reading</li>
-    <li>Journaling</li>
-</ul>
-
-
-
-<!-- burger index for reference-->
-
 <div class="container">
 
     <div class="jumbotron">
@@ -30,24 +9,16 @@
             <form class="create-form">
                 <div class="form-group">
                     <label for="newtask" id="color-override">New Task:</label>
-                    <input type="text" id="newtask" name="task_name">
+                    <input type="text" id="newtask" name="task">
                     <br>
-                    <!--
                     <label for="category" id="color-override">Category:</label>
                     <input type="text" id="category" name="category">
-                    -->
-                    <select name="category" id="category">
-                        <option value="Morning Routines">Morning Routines</option>
-                        <option value="Evening Routines">Evening Routines</option>
-                        <option value="Chores">Chores</option>
-                        <option value="Miscellaneous">Miscellaneous</option>
-                    </select>
                     <br>
                     <label for="value" id="color-override">Value:</label>
-                    <input type="number" min="1" max="10" id="value" name="value">
+                    <input type="number" min="1" max="10" id="value" name="quantity">
                     <br>
                     <label for="time" id="color-override">Estimated Time:</label>
-                    <input type="number" min="1" max="60" id="time" name="estimated_time">
+                    <input type="number" min="1" max="60" id="time" name="time">
                     <br>
                     <button type="submit" class="btn btn-success" id="addtask">
                         <span class="fa fa-thumbs-up"></span>
@@ -101,18 +72,6 @@
                 </div>
             </div>
         </div>
-
-        <!-- Display Tasks by Category -->
-        {{!-- <div class="col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-heading" id="righthead">
-                    <strong>Choose Your Category</strong>
-                </div>
-                <select>
-                    <option value=""
-                </select>
-            </div>
-        </div> --}}
 
         <!-- Modal -->
         <div id="inputModal" class="modal fade" role="dialog">
