@@ -46,10 +46,13 @@ module.exports = function (sequelize, Sequelize) {
             type: Sequelize.ENUM('active', 'inactive'),
             defaultValue: 'active'
         }
-
-
     });
 
-    return User;
+    User.associate = function(models) {
+        User.hasMany(models.Task, {
+            onDelete: "cascade"
+        });
+    };
 
+    return User;
 }
