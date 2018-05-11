@@ -5,13 +5,14 @@ $(function () {
     // Create task in the database.
     $(".create-form").on("submit", function (event) {
         event.preventDefault();
-
+        var userId = $(this).data("user.Id");
         var newTask = {
             task_name: $("#newtask").val().trim(),
             category: $("#category").val().trim(),
             completed: 0,
             value: $("#value").val().trim(),
             estimated_time: $("#time").val().trim(),
+            userId: userId
         };
 
         $.ajax("/exercise/create", {
@@ -54,4 +55,16 @@ $(function () {
         }).then(location.reload());
     });
 
+});
+
+$(document).ready(function() {
+    $.get("/exercise/points", function(data) {
+        console.log("Sum of exercise points: " + data);
+        $("#sumdisplay").empty();
+        if (!data) {
+            $("#sumdisplay").html("Get to work, slacker!");
+        } else {
+            $("#sumdisplay").html(data);
+        }
+    });
 });
