@@ -21,7 +21,8 @@ function isLoggedIn(req, res, next) {
 router.get("/exercise", function (req, res) {
     db.Task.findAll({
         where: {
-            category: "Exercise"
+            category: "Exercise",
+            userId: req.user.id
         }
     }).then(function (results) {
         var hbsObject = {
@@ -37,7 +38,8 @@ router.get("/exercise/points", function (req, res) {
     db.Task.sum("value", {
         where: {
             category: "Exercise",
-            completed: 1
+            completed: 1,
+            userId: req.user.id
         }
     }).then(function (results) {
         // Send the data to be retrieved by model.js document.ready
