@@ -5,7 +5,7 @@ $(function () {
     // Create task in the database.
     $(".create-form").on("submit", function (event) {
         event.preventDefault();
-
+        var userId = $(this).data("user.Id");
         var newTask = {
             task_name: $("#newtask").val().trim(),
             category: $("#category").val().trim(),
