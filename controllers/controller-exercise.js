@@ -4,6 +4,16 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
+function isLoggedIn(req, res, next) {
+
+    if (req.isAuthenticated())
+
+        return next();
+
+    res.redirect('/signin');
+
+}
+
 // *** Routes
 // =============================================================
 
@@ -37,13 +47,15 @@ router.get("/exercise/points", function (req, res) {
 });
 
 // Add new task to the db.
-router.post("/exercise/create", function (req, res) {
+router.post("/exercise/create", isLoggedIn, function (req, res) {
     console.log(req.body);
+    console.log(req.user);
     db.Task.create({
         task_name: req.body.task_name,
         category: req.body.category,
         value: req.body.value,
-        estimated_time: req.body.estimated_time
+        estimated_time: req.body.estimated_time,
+        userId: req.user.id
     }).then(function (results) {
         return res.json(results);
     });

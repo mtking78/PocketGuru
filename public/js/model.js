@@ -14,12 +14,12 @@ $(function () {
             estimated_time: $("#time").val().trim(),
         };
 
-        $.ajax("/api/tasks", {
+        $.ajax("/exercise/create", {
             type: "POST",
             data: newTask
         }).then(function () {
-                console.log("You've added a task!");
-                location.reload();
+            console.log("You've added a task!");
+            location.reload();
         });
     });
 
@@ -42,7 +42,7 @@ $(function () {
     });
 
     // Delete task from the database.
-    $(".remove").on("click", function(event) {
+    $(".remove").on("click", function (event) {
         event.preventDefault();
 
         var id = $(this).data("id");
