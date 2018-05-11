@@ -9,7 +9,7 @@
             <ul>
                 {{#each books}}
                 <li>
-                    <span>Book: {{this.book}} -{{this.author}}</span>
+                    <span>Book: {{this.book_title}} -{{this.author}}</span>
                 </li>
                 {{/each}}
             </ul>
@@ -20,10 +20,13 @@
             <panel>
                 <form class="create-form">
                     <div class="form-group">
-                        <label for="newtask" id="color-override">New Book:</label>
-                        <input type="text" id="newtask" name="task_name">
+                        <label for="newbook" id="color-override">New Book:</label>
+                        <input type="text" id="newbook" name="book_name">
                         <br>
-                        <input type="hidden" type="text" id="category" value="Exercise">
+                        <label for="newbookauthor" id="color-override">Author:</label>
+                        <input type="text" id="newbookauthor" name="author_name">
+                        <br>
+                        <input type="hidden" type="text" id="category" value="Books">
                         <label for="value" id="color-override">Value:</label>
                         <input type="number" min="1" max="10" id="value" name="value">
                         <br>
@@ -65,7 +68,7 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>Exercise</th>
+                            <th>Book</th>
                             <th>Points</th>
                             <th>Time</th>
                         </tr>

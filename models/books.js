@@ -1,10 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
-    var Task = sequelize.define("Task", {
-        task_name: {
+    var Books = sequelize.define("Books", {
+        book_title: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        category: {
+        author: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -31,5 +31,5 @@ module.exports = function (sequelize, DataTypes) {
         });
     };
 
-    return Task;
+    return Books;
 };

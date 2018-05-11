@@ -1,22 +1,3 @@
-// var quotesQueryURL = "https://quotes.rest/qod.json"
-
-// $.ajax({
-//     url: quotesQueryURL,
-//     method: "GET"
-// }).then(function (response) {
-//     console.log(quotesQueryURL);
-//     console.log(response);
-//     console.log(response.contents.quotes[0].quote);
-//     console.log(response.contents.quotes[0].author);
-
-//     //create space for quote to go on page
-//     var quoteDiv = $("<div>");
-//     var quote = $("<p id= quote>").text(response.contents.quotes[0].quote);
-//     var author = $("<p id= author>").text("-" + response.contents.quotes[0].author);
-//     $("#inspirational-quote").append(quote, author);
-// });
-
-
 var successAffirmations = ["I am so happy and grateful now that I have clarity about my desires and each day I move closer to achieving them.", "I am so happy and grateful now that I am one with the riches of my subconscious mind.", "I am so happy and grateful now that everything is working out for my greatest good.", "I can handle massive success with grace.", "I have an attitude of gratitude and it propels me to new heights."];
 
 var wealthAffirmations = ["I am so happy and grateful now that money comes to me in increasing quantities on a continuous basis through many sources.", "I am a magnet for money.", "Money comes to me easily and effortlessly.", "Prosperity is drawn to me.", "I am worthy of abundance.", "I am open and receptive to all the wealth that life offers me.", "My actions create constant prosperity.", "I am sligned with the energy of abundance.", "I welcome an unlimited source of income and wealth in my life.", "I use money to better my life and the lives of others.", "Wealth constantly flows into my life.", "I constantly attract opportunities that create more money.", "My finances improve beyond my wildest dreams.", "Money and spirituality can co-exist in perfect harmony.", "I can handle massive success with grace.", "Money creates positive impact in my life."];

@@ -13,7 +13,7 @@ router.get("/exercise", function (req, res) {
         where: {
             category: "Exercise"
         }
-    }).then(function(results) {
+    }).then(function (results) {
         var hbsObject = {
             tasks: results
         };
@@ -29,7 +29,7 @@ router.get("/exercise/points", function (req, res) {
             category: "Exercise",
             completed: 1
         }
-    }).then(function(results) {
+    }).then(function (results) {
         // Send the data to be retrieved by model.js document.ready
         return res.json(results);
         console.log(results);
@@ -44,18 +44,20 @@ router.post("/exercise/create", function (req, res) {
         category: req.body.category,
         value: req.body.value,
         estimated_time: req.body.estimated_time
-    }).then(function(results) {
+    }).then(function (results) {
         return res.json(results);
     });
 });
 
 // Set task completed status to true.
-router.put("/exercise/update", function(req, res) {
+router.put("/exercise/update", function (req, res) {
     db.Task.update({
         completed: req.body.completed
-    }, {where: {
-        id: req.params.id
-    }}).then(function(dbTask) {
+    }, {
+        where: {
+            id: req.params.id
+        }
+    }).then(function (dbTask) {
         if (dbTask.changedRows === 0) {
             // If no rows were changed, then the ID must not exist, so 404.
             return res.status(404).end();
@@ -67,10 +69,12 @@ router.put("/exercise/update", function(req, res) {
 });
 
 // Delete task from db.
-router.delete("/exercise/delete", function(req, res) {
-    db.Task.destroy({where: {
-        id: req.params.id
-    }}).then(function(results) {
+router.delete("/exercise/delete", function (req, res) {
+    db.Task.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function (results) {
         if (results.changedRows === 0) {
             // If no rows were changed, then the ID must not exist, so 404.
             return res.status(404).end();
