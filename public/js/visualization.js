@@ -1,23 +1,32 @@
-function get_instagram_likes() {
+// function get_instagram_likes() {
 
-    // # SET UP VARIABLES
-    // # GETTING AN ACCESS TOKEN:
-    // # http://instagram.com/developer/authentication/
-    ACCESS_TOKEN = '632495.f59def8.8b48cda0981046519c73fa8513c573be';
+//     // # SET UP VARIABLES
+//     // # GETTING AN ACCESS TOKEN:
+//     // # http://instagram.com/developer/authentication/
+//     ACCESS_TOKEN = '632495.f59def8.8b48cda0981046519c73fa8513c573be';
 
-    BASE_URL = 'https://api.instagram.com/v1/users/self/media/liked?access_token='
-    URL = BASE_URL + ACCESS_TOKEN
+//     BASE_URL = 'https://api.instagram.com/v1/users/self/media/liked?access_token='
+//     URL = BASE_URL + ACCESS_TOKEN
 
-    // # GRAB LATEST LIKES 
-    // # FOR USER FROM INSTAGRAM
-    // # http://instagram.com/developer/endpoints/users/
-    response = requests.get(URL)
-    content = response.content
-    json_result = json.loads(content)
+//     // # GRAB LATEST LIKES 
+//     // # FOR USER FROM INSTAGRAM
+//     // # http://instagram.com/developer/endpoints/users/
+//     response = requests.get(URL)
+//     content = response.content
+//     json_result = json.loads(content)
 
-    return json_result
-};
+//     return json_result
+// };
 
-get_instagram_likes();
+// get_instagram_likes();
 
-module.exports
+// module.exports
+
+
+function changeRandomImage() {
+    var imageArray = ["../assets/images/paris.jpg", "../assets/images/bathroom.jpg", "../assets/images/luxuryhome.jpg"];
+
+    var randomImage = Math.floor(Math.random() * imageArray.length);
+    document.body.background = imageArray[randomImage];
+}
+changeRandomImage();
