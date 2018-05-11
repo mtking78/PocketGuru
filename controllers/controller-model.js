@@ -4,16 +4,24 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
+function isLoggedIn(req, res, next) {
+
+    if (req.isAuthenticated())
+
+        return next();
+
+    res.redirect('/signin');
+}
 // *** Routes
 // =============================================================
 // Index Page (render all burgers to html)
-router.get("/", function (req, res) {
-    db.Task.findAll({}).then(function(results) {
+router.get("/", isLoggedIn, function (req, res) {
+    db.Task.findAll({}).then(function (results) {
         var hbsObject = {
             tasks: results
         };
         // console.log(hbsObject);
-        res.render("index", hbsObject);
+        res.render("dashboard", hbsObject);
 
         // !!! Only use line below to display WITHOUT data.
         // res.render("index");
@@ -27,18 +35,20 @@ router.post("/api/tasks", function (req, res) {
         category: req.body.category,
         value: req.body.value,
         estimated_time: req.body.estimated_time
-    }).then(function(results) {
+    }).then(function (results) {
         return res.json(results);
     });
 });
 
 // Set task completed status to true.
-router.put("/api/tasks/:id", function(req, res) {
+router.put("/api/tasks/:id", function (req, res) {
     db.Task.update({
         completed: req.body.completed
-    }, {where: {
-        id: req.params.id
-    }}).then(function(dbTask) {
+    }, {
+        where: {
+            id: req.params.id
+        }
+    }).then(function (dbTask) {
         if (dbTask.changedRows === 0) {
             // If no rows were changed, then the ID must not exist, so 404.
             return res.status(404).end();
@@ -50,10 +60,12 @@ router.put("/api/tasks/:id", function(req, res) {
 });
 
 // Delete task from db.
-router.delete("/api/tasks/:id", function(req, res) {
-    db.Task.destroy({where: {
-        id: req.params.id
-    }}).then(function(results) {
+router.delete("/api/tasks/:id", function (req, res) {
+    db.Task.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function (results) {
         if (results.changedRows === 0) {
             // If no rows were changed, then the ID must not exist, so 404.
             return res.status(404).end();

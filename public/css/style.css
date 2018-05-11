@@ -1,19 +1,19 @@
-.grid-container {
+/* .grid-container {
     background-image: url();
     display: grid;
     grid-gap: 50px;
     grid-template-columns: auto auto auto;
-    /* background-color: rgb(197, 229, 255); */
+    background-color: rgb(197, 229, 255); 
     padding: 10px;
 }
 
 .grid-item {
-    /* background-color: rgba(255, 255, 255, 0.8); */
+    background-color: rgba(255, 255, 255, 0.8);
     border: 1px outset rgba(145, 145, 145, s0.8);
     padding: 20px;
-    /* font-size: 30px; */
+    font-size: 30px;
     text-align: center;
-}
+} */
 
 .home {
     background-image: url(mandala.png);
@@ -46,7 +46,6 @@ p {
 
 .jumbotron {
     background-color: rgba(0, 255, 255, 0.261);
-    width: 1000px;
 }
 
 .stuff {
@@ -54,12 +53,11 @@ p {
 }
 
 #footer {
-    width: 1200px;
+    width: 100%;
     background-color: #26a69a;
-    float: auto;
+    left: 0;
     margin-top: 25px;
     position: absolute;
-    bottom: 0;
 }
 
 /* #silence{
