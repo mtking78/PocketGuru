@@ -23,22 +23,16 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         }
-        // // Use when user sign-in is functional.
-        // UserId: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false
-        // }
-
     });
-    // // Use when user sign-in is functional.
-    // // Every task must have one user.
-    // Task.associate = function(models) {
-    //     Task.belongsTo(models.User, {
-    //         foreignKey: {
-    //             allowNull: false
-    //         }
-    //     });
-    // };
+
+    // Every task must have one user.
+    Task.associate = function(models) {
+        Task.belongsTo(models.user, {
+            foreignKey: {
+                allowNull: false
+            }
+        });
+    };
 
     return Task;
 };
