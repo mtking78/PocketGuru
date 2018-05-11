@@ -33,7 +33,7 @@
     background-image: url(mandalaBttmHalf.png);
 }
 
-a {
+href {
     text-decoration: none;
 }
 
@@ -58,7 +58,7 @@ p {
 }
 
 .jumbotron {
-    background-color: rgba(0, 255, 255, 0.261);
+    /* background-color: rgba(0, 255, 255, 0.261); */
 }
 
 .stuff {
@@ -129,7 +129,7 @@ p {
 
 /* index pg */
 
-#silance:hover {
+#silence:hover {
     background-image: none;
     background-color: #a200ff;
 }
@@ -161,7 +161,10 @@ p {
 
 #morning-tasks-title {}
 
-#vision-board-container {}
+#vision-board-container {
+    height: 500px;
+    width: auto;
+}
 
 #affirmations-container {}
 

@@ -23,10 +23,14 @@
 // module.exports
 
 
-function changeRandomImage() {
-    var imageArray = ["../assets/images/paris.jpg", "../assets/images/bathroom.jpg", "../assets/images/luxuryhome.jpg"];
+function visionBoardDisplay() {
+    var visionBoardImages = ["../assets/images/bighome.jpg", "../assets/images/luxuryhome.jpg", "../assets/images/tesla.jpg", "../assets/images/elon.jpg", "../assets/images/idealbody.jpg", "../assets/images/relationshipgoals.jpg", "../assets/images/paris.jpg"];
 
-    var randomImage = Math.floor(Math.random() * imageArray.length);
-    document.body.background = imageArray[randomImage];
+    for (var i = 0; i < visionBoardImages.length; i++) {
+        var pic = $("<img>");
+        pic.attr("src", src);
+        pic.addClass("vbimgs");
+        $("#vision-board-container").append(visionBoardImages);
+    }
 }
-changeRandomImage();
+visionBoardDisplay();
