@@ -1,0 +1,134 @@
+<div class="container">
+
+    <div class="jumbotron">
+        <h1 id="color-override">Reading List</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-9">
+            <ul>
+                {{#each books}}
+                <li>
+                    <span>Book: {{this.book}} -{{this.author}}</span>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+
+
+        <div class="col-sm-9">
+            <panel>
+                <form class="create-form">
+                    <div class="form-group">
+                        <label for="newtask" id="color-override">New Book:</label>
+                        <input type="text" id="newtask" name="task_name">
+                        <br>
+                        <input type="hidden" type="text" id="category" value="Exercise">
+                        <label for="value" id="color-override">Value:</label>
+                        <input type="number" min="1" max="10" id="value" name="value">
+                        <br>
+                        <label for="time" id="color-override">Estimated Time:</label>
+                        <input type="number" min="1" max="60" id="time" name="estimated_time">
+                        <br>
+                        <button type="submit" class="btn btn-success" id="addtask">
+                            <span class="fa fa-thumbs-up"></span>
+                        </button>
+                    </div>
+                </form>
+            </panel>
+        </div>
+
+        <div class="col-sm-3">
+            <panel>
+                <h3>Total Points</h3>
+                <div class="well">
+                    <!-- need to display sum (no name, just an integer) -->
+                    <span id="sumdisplay">{{#each tasks}}{{???}}{{/each}}</span>
+                </div>
+            </panel>
+        </div>
+
+    </div>
+</div>
+<!-- /jumbotron -->
+
+<div class="row">
+
+    <!-- Tasks to do -->
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-heading" id="lefthead">
+                <strong>Get Sweaty!</strong>
+            </div>
+            <div class="panel-body">
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Points</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each tasks}} {{#unless completed}}
+                        <tr>
+                            <td>{{this.task_name}}</td>
+                            <td>{{this.value}}</td>
+                            <td>{{this.estimated_time}}</td>
+                            <td>
+                                <button type="button" class="complete btn btn-warning" id="complete" data-id="{{this.id}}" data-newCompleted="{{completed}}">
+                                    <span class="fa fa-check"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        {{/unless}} {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Completed Tasks -->
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+
+            <div class="panel-heading" id="righthead">
+                <strong>Today's Achievements</strong>
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th>Exercise</th>
+                            <th>Points</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {{#each tasks}} {{#if completed}}
+                        <tr>
+                            <td>{{this.task_name}}</td>
+                            <td>{{this.value}}</td>
+                            <td>{{this.estimated_time}}</td>
+                            <td>
+                                <button type="button" class="remove btn btn-danger" id="remove" data-id="{{this.id}}">
+                                    <span class="fa fa-trash"></span>
+                                </button>
+                            </td>
+                        </tr>
+                        {{/if}} {{/each}}
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /row -->
+</div>
+<!-- /container -->

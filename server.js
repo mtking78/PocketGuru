@@ -4,13 +4,18 @@
 // ******************************************************************************
 // *** Dependencies
 // =============================================================
-var express = require("express");
-var bodyParser = require("body-parser");
+var express = require('express');
+var passport = require('passport');
+var session = require('express-session');
+var bodyParser = require('body-parser');
+var env = require('dotenv').load();
+var exphbs = require('express-handlebars');
 
 // Sets up the Express App
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
+
 // Sets up the Express app to handle data parsing
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({
@@ -18,25 +23,48 @@ app.use(bodyParser.urlencoded({
 }));
 // parse application/json
 app.use(bodyParser.json());
+
 // Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
 
-// Sets up Handlebars.
-// =============================================================
+// For Passport
+app.use(session({
+    secret: 'keyboard cat',
+    resave: true,
+    saveUninitialized: true
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+//For Handlebars
 var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({
     defaultLayout: "main"
 }));
 app.set("view engine", "handlebars");
 
+//welcome to passport
+// app.get('/', function (req, res) {
+
+//     res.send('Welcome to Passport with Sequelize');
+
+// });
+
 // Import routes and give the server access to them.
 // =============================================================
-var routes = require("./controllers/controller-model.js");
-app.use(routes);
+var indexRoutes = require("./controllers/controller-model.js");
+var exerciseRoutes = require("./controllers/controller-exercise.js");
+app.use(indexRoutes, exerciseRoutes);
+
 
 // Requiring our models for syncing
-// =============================================================
 var db = require("./models");
+
+//Routes
+var authRoute = require('./routes/auth.js')(app, passport);
+
+//load passport strategies
+require('./config/passport/passport.js')(passport, db.user);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================

@@ -9,9 +9,12 @@ $(document).ready(function () {
     var posts;
 
     // This function grabs posts from the database and updates the view
-    function getPosts(all) {
-
-        $.get("/api/journalEntries", function (data) {
+    function getPosts(category) {
+        var categoryString = category || "";
+        if (categoryString) {
+            categoryString = "/category/" + categoryString;
+        }
+        $.get("/api/posts" + categoryString, function (data) {
             console.log("Posts", data);
             posts = data;
             if (!posts || !posts.length) {
@@ -26,7 +29,7 @@ $(document).ready(function () {
     function deletePost(id) {
         $.ajax({
                 method: "DELETE",
-                url: "/api/journalEntries/" + id
+                url: "/api/posts/" + id
             })
             .then(function () {
                 getPosts(postCategorySelect.val());
