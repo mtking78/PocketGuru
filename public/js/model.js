@@ -8,7 +8,7 @@ $(function () {
 
         var newTask = {
             task_name: $("#newtask").val().trim(),
-            category: $("#category").val(),
+            category: $("#category").val().trim(),
             completed: 0,
             value: $("#value").val().trim(),
             estimated_time: $("#time").val().trim(),
@@ -18,8 +18,8 @@ $(function () {
             type: "POST",
             data: newTask
         }).then(function () {
-            console.log("You've added a task!");
-            location.reload();
+                console.log("You've added a task!");
+                location.reload();
         });
     });
 
@@ -42,7 +42,7 @@ $(function () {
     });
 
     // Delete task from the database.
-    $(".remove").on("click", function (event) {
+    $(".remove").on("click", function(event) {
         event.preventDefault();
 
         var id = $(this).data("id");
@@ -54,17 +54,4 @@ $(function () {
         }).then(location.reload());
     });
 
-});
-
-$(document).ready(function() {
-    // On page load, run a function to find the sum of exercise points.
-    $.get("/exercise/points", function(data) {
-        console.log("Sum of exercise points: " + data);
-        $("#sumdisplay").empty();
-        if (!data) {
-            $("#sumdisplay").html("Get to work, slacker.");
-        } else {
-            $("#sumdisplay").html(data);
-        }
-    });
 });
