@@ -58,6 +58,7 @@ $(function () {
 });
 
 $(document).ready(function() {
+    // Specific call to find sum of exercise points
     $.get("/exercise/points", function(data) {
         console.log("Sum of exercise points: " + data);
         $("#sumdisplay").empty();
@@ -65,6 +66,16 @@ $(document).ready(function() {
             $("#sumdisplay").html("Get to work, slacker!");
         } else {
             $("#sumdisplay").html(data);
+        }
+    });
+
+    // Check if any incomplete tasks exist
+    $.get("/exercise/alltasks", function (data) {
+        console.log(data);
+        if (data) {
+            console.log("Not done yet.");
+        } else {
+            console.log("All done.");
         }
     });
 });

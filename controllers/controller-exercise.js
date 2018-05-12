@@ -48,6 +48,19 @@ router.get("/exercise/points", function (req, res) {
     });
 });
 
+// Check to see if any tasks remain incomplete
+router.get("/exercise/alltasks", function (req, res) {
+    db.Task.findOne({
+        where: {
+            category: "Exercise",
+            completed: false,
+            userId: req.user.id
+        }
+    }).then(function (data) {
+        return res.json(data);
+    });
+});
+
 // Add new task to the db.
 router.post("/exercise/create", isLoggedIn, function (req, res) {
     console.log("req.body: " + req.body);
