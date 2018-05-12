@@ -1,9 +1,8 @@
-//starter code
-
+// *** Event handlers for the Exercise page ***
 $(function () {
 
     // Create task in the database.
-    $(".create-form").on("submit", function (event) {
+    $("#addExercise").on("submit", function (event) {
         event.preventDefault();
         var userId = $(this).data("user.Id");
         var newTask = {
@@ -11,7 +10,8 @@ $(function () {
             category: $("#category").val().trim(),
             completed: 0,
             value: $("#value").val().trim(),
-            estimated_time: $("#time").val().trim(),
+            // estimated_time: $("#time").val().trim(),
+            frequency: $("#frequency").val(),
             userId: userId
         };
 
@@ -25,7 +25,7 @@ $(function () {
     });
 
     // Update task to true on completed.
-    $(".complete").on("click", function (event) {
+    $(".completeExercise").on("click", function (event) {
         event.preventDefault();
         var id = $(this).data("id");
         var taskStatus = {
@@ -43,7 +43,7 @@ $(function () {
     });
 
     // Delete task from the database.
-    $(".remove").on("click", function (event) {
+    $(".removeExercise").on("click", function (event) {
         event.preventDefault();
 
         var id = $(this).data("id");
@@ -57,6 +57,7 @@ $(function () {
 
 });
 
+// *** Page load display functions ***
 $(document).ready(function() {
     // Specific call to find sum of exercise points
     $.get("/exercise/points", function(data) {
