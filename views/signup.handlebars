@@ -1,35 +1,23 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>POCKET GURU</title>
-</head>
-
 <body>
-    <div class="jumbotron">
-        <h1 id="title">POCKET GURU</h1>
-        <hr>
+    <div class="container home">
 
-        <form id="signup" name="signup" method="post" action="/signup">
-            <label for="email">Email Address</label>
-            <input class="text" name="email" type="email" />
-            <label for="firstname">First Name</label>
-            <input name="firstname" type="text" />
-            <label for="lastname">Last Name</label>
-            <input name="lastname" type="text" />
-            <label for="password">Password</label>
-            <input name="password" type="password" />
-            <input class="btn" type="submit" value="Sign Up" />
-        </form>
+        <div class="jumbotron">
+            <h1 id="title">POCKET GURU</h1>
+            <hr>
+
+            <form id="signup" name="signup" method="post" action="/signup">
+                <label for="email">Email Address</label>
+                <input class="text" name="email" type="email" />
+                <label for="firstname">First Name</label>
+                <input name="firstname" type="text" />
+                <label for="lastname">Last Name</label>
+                <input name="lastname" type="text" />
+                <label for="password">Password</label>
+                <input name="password" type="password" />
+                <input class="btn" type="submit" value="Sign Up" />
+            </form>
+        </div>
+
+        <a href="/signin">I already have an account!</a>
     </div>
-
-    <a href="/signin">I already have an account!</a>
 </body>
-
-</html>
-
-
-#signup{ margin-bottom:20px; } #contactform li{ margin-bottom: 10px; list-style: none; } input[type=text], select, textarea
-{ width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; margin-top: 6px; margin-bottom:
-16px; resize: vertical } textarea{ height:200px; } input[type=submit] { background-color: #4aaaaf; color: white; padding:
-12px 20px; border: none; border-radius: 4px; cursor: pointer; } input[type=submit]:hover { background-color: #cccccc; }
