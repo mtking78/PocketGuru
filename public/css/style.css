@@ -1,0 +1,65 @@
+
+.home {
+    background-image: url(mandala.png);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.index {
+    background-image: url(mandalaTopHalf.png);
+    left: 100px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.work {
+    background-image: url(mandalaBttmHalf.png);
+    background-position: center;
+}
+
+h1,
+h2,{
+    font-family: 'Berkshire Swash',cursive;
+}
+
+p {
+    font-family: 'Oxygen', sans-serif;
+}
+
+.jumbotron {
+    background-color: rgba(0, 255, 255, 0.261);
+}
+
+.stuff {
+    position: center;
+}
+
+#footer {
+    width: 100%;
+    background-color:  rgba(0, 255, 255, 0.261);
+    left: 0;
+    margin-top: 25px;
+    position: fixed;
+}
+
+/* #silence{}
+#affirmations{} */
+
+/* #visualization{} */
+
+/* #exercise{} */
+
+/* #read{} */
+
+/* #scriber{} */
+
+
+#morning-tasks-title {}
+
+#vision-board-container {}
+
+#affirmations-container {}
+
+#lead {}
+
+#affirmations-description {}
