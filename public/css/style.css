@@ -24,15 +24,6 @@
     /* margin-bottom:20px; */
 }
 
-h1,
-h2,{
-    font-family: 'Berkshire Swash',cursive;
-}
-
-p {
-    font-family: 'Oxygen', sans-serif;
-}
-
 .jumbotron {
     background-color: rgba(0, 255, 255, 0.303);
 }
@@ -40,12 +31,17 @@ p {
 .stuff {
     position: center;
 }
+
+h1,
+h2,
 .title {
     font-family: 'Berkshire Swash', cursive;
     font-color: rgba(0, 255, 255, 0.261);
 }
-
-#info {}
+h3,
+#info {
+    font-family: 'Oxygen', sans-serif;
+}
 
 #hour-of-power {}
 
