@@ -1,48 +1,19 @@
 <div class="container">
 
     <div class="jumbotron">
-        <h1 id="color-override">Exercise</h1>
-        <br>
-        <h2 id="color-override">Create a New Exercise Routine</h2>
-        <div class="row">
-
-            <div class="col-sm-9">
-                <panel>
-                    <form class="create-form">
-                        <div class="form-group">
-                            <label for="newtask" id="color-override">New Exercise Activity:</label>
-                            <input type="text" id="newtask" name="task_name">
-                            <br>
-                            <input type="hidden" type="text" id="category" value="Exercise">
-                            <label for="value" id="color-override">Value:</label>
-                            <input type="number" min="1" max="10" id="value" name="value">
-                            <br>
-                            <label for="time" id="color-override">Estimated Time:</label>
-                            <input type="number" min="1" max="60" id="time" name="estimated_time">
-                            <br>
-                            <button type="submit" class="btn btn-success" id="addtask">
-                                <span class="fa fa-thumbs-up"></span>
-                            </button>
-                        </div>
-                    </form>
-                </panel>
-            </div>
-
-            <div class="col-sm-3">
-                <panel>
-                    <h3>Total Points</h3>
-                    <div class="well">
-                        <!-- Value fetched from model.js document.ready function -->
-                        <span id="sumdisplay"></span>
-                    </div>
-                </panel>
-            </div>
-
-        </div>
-    </div>
-    <!-- /jumbotron -->
+        <h1 class="morning-tasks-title">Exercise</h1>
+        <p class="lead">
+            Exercising is an integral part of the day to keep a healthy body and mind!
+        </p>
+        {{!-- </div> --}}
 
     <div class="row">
+        <div class="col-sm-8"></div>
+        <div class="col-sm-4">
+            <p id="points">Great job! So far, you have earned
+                <span class="well" id="sumdisplay"></span> points today!</p>
+
+        </div>
 
         <!-- Tasks to do -->
         <div class="col-sm-6">
@@ -61,7 +32,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{#each tasks}} {{#unless completed}}
+                            {{#each tasks}} {{!-- {{#unless completed}} --}}
                             <tr>
                                 <td>{{this.task_name}}</td>
                                 <td>{{this.value}}</td>
@@ -72,53 +43,93 @@
                                     </button>
                                 </td>
                             </tr>
-                            {{/unless}} {{/each}}
+                            {{!-- {{/unless}} --}} {{/each}}
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
 
-        <!-- Completed Tasks -->
-        <div class="col-sm-6">
-            <div class="panel panel-default">
 
-                <div class="panel-heading" id="righthead">
-                    <strong>Today's Achievements</strong>
+        <div class="col-sm-9">
+            <panel>
+                <h2 id="color-override">Add a New Exercise Routine</h2>
+                <form class="create-form">
+                    <div class="form-group">
+                        <label for="newtask" id="color-override">New Activity:</label>
+                        <input type="text" id="newtask" name="task_name">
+                        <br> {{!--
+                        <input type="hidden" type="text" id="category" value="Exercise">
+                        <label for="value" id="color-override">Value:</label>
+                        <input type="number" min="1" max="10" id="value" name="value">
+                        <br>
+                        <label for="time" id="color-override">Estimated Time: </label>
+                        <input type="number" min="1" max="60" id="time" name="estimated_time">
+                        <br> --}}
+                        <button type="submit" class="btn btn-success" id="addtask">
+                            <span class="fa fa-thumbs-up"></span>
+                        </button>
+                    </div>
+                </form>
+            </panel>
+        </div>
+
+        {{!--
+        <div class="col-sm-3">
+            <panel>
+                <h3>Total Points</h3>
+                <div class="well">
+                    <!-- Value fetched from model.js document.ready function -->
+                    <span id="sumdisplay"></span>
                 </div>
-
-                <div class="panel-body">
-                    <table class="table table-striped">
-
-                        <thead>
-                            <tr>
-                                <th>Exercise</th>
-                                <th>Points</th>
-                                <th>Time</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {{#each tasks}} {{#if completed}}
-                            <tr>
-                                <td>{{this.task_name}}</td>
-                                <td>{{this.value}}</td>
-                                <td>{{this.estimated_time}}</td>
-                                <td>
-                                    <button type="button" class="remove btn btn-danger" id="remove" data-id="{{this.id}}">
-                                        <span class="fa fa-trash"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            {{/if}} {{/each}}
-                        </tbody>
-
-                    </table>
-                </div>
-            </div>
+            </panel>
         </div>
 
     </div>
-    <!-- /row -->
+</div> --}}
+<!-- /jumbotron -->
+
+<!-- Completed Tasks -->
+{{!--
+<div class="col-sm-6">
+    <div class="panel panel-default">
+
+        <div class="panel-heading" id="righthead">
+            <strong>Today's Achievements</strong>
+        </div>
+
+        <div class="panel-body">
+            <table class="table table-striped">
+
+                <thead>
+                    <tr>
+                        <th>Exercise</th>
+                        <th>Points</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{#each tasks}} {{#if completed}}
+                    <tr>
+                        <td>{{this.task_name}}</td>
+                        <td>{{this.value}}</td>
+                        <td>{{this.estimated_time}}</td>
+                        <td>
+                            <button type="button" class="remove btn btn-danger" id="remove" data-id="{{this.id}}">
+                                <span class="fa fa-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    {{/if}} {{/each}}
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+
+</div> --}}
+<!-- /row -->
 </div>
 <!-- /container -->

@@ -46,7 +46,17 @@ h4 {
 
 #title {
     font-family: 'Berkshire Swash', cursive;
+    font-color: rgba(0, 255, 255, 0.261);
 }
+
+.title {
+    font-family: 'Berkshire Swash', cursive;
+    font-color: rgba(0, 255, 255, 0.261);
+}
+
+#info {}
+
+#hour-of-power {}
 
 #lead {
     font-size: 14px;
