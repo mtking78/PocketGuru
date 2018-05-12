@@ -16,6 +16,13 @@
     background-image: url(mandalaBttmHalf.png);
     background-position: center;
 }
+#menuBtns{
+    /* width: 600px; */
+    /* padding:zero; */
+    /* position: center; */
+    /* float:right; */
+    /* margin-bottom:20px; */
+}
 
 h1,
 h2,{
@@ -27,16 +34,34 @@ p {
 }
 
 .jumbotron {
-    background-color: rgba(0, 255, 255, 0.261);
+    background-color: rgba(0, 255, 255, 0.303);
 }
 
 .stuff {
     position: center;
 }
+.title {
+    font-family: 'Berkshire Swash', cursive;
+    font-color: rgba(0, 255, 255, 0.261);
+}
+
+#info {}
+
+#hour-of-power {}
+
+#lead {
+    font-size: 14px;
+    font-color: rgba(0, 255, 255, 0.261);
+}
+
+#title {
+    font-family: 'Berkshire Swash', cursive;
+    font-color: rgba(0, 255, 255, 0.261);
+}
 
 #footer {
     width: 100%;
-    background-color:  rgba(0, 255, 255, 0.261);
+    background-color:  rgba(0, 255, 255, 0.501);
     left: 0;
     margin-top: 25px;
     position: fixed;
