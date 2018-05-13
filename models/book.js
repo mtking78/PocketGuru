@@ -1,10 +1,10 @@
 module.exports = function (sequelize, DataTypes) {
-    var Task = sequelize.define("Task", {
-        task_name: {
+    var Book = sequelize.define("Book", {
+        title: {
             type: DataTypes.STRING,
             allowNull: false
         },
-        category: {
+        author: {
             type: DataTypes.STRING,
             allowNull: false
         },
@@ -16,24 +16,20 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        // estimated_time: {
-        //     type: DataTypes.INTEGER,
-        //     allowNull: false
-        // }
-        frequency: {
-            type: DataTypes.STRING,
+        estimated_time: {
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     });
 
     // Every task must have one user.
-    Task.associate = function (models) {
-        Task.belongsTo(models.user, {
+    Book.associate = function (models) {
+        Book.belongsTo(models.user, {
             foreignKey: {
                 allowNull: false
             }
         });
     };
 
-    return Task;
+    return Book;
 };
