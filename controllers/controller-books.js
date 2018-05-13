@@ -49,7 +49,7 @@ router.post("/book/create", isLoggedIn, function (req, res) {
 });
 
 // Set book completed status to true.
-router.put("/book/update", function (req, res) {
+router.put("/book/update", isLoggedIn, function (req, res) {
     db.Book.update({
         completed: req.body.completed
     }, {

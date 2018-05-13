@@ -25,7 +25,7 @@ $(function () {
     });
 
     // Update task to true on completed.
-    $(".completeExercise").on("click", function (event) {
+    $("#completeExercise").on("click", function (event) {
         event.preventDefault();
         var id = $(this).data("id");
         var taskStatus = {
@@ -43,7 +43,7 @@ $(function () {
     });
 
     // Delete task from the database.
-    $(".removeExercise").on("click", function (event) {
+    $("#removeExercise").on("click", function (event) {
         event.preventDefault();
 
         var id = $(this).data("id");
@@ -58,9 +58,9 @@ $(function () {
 });
 
 // *** Page load display functions ***
-$(document).ready(function() {
+$(document).ready(function () {
     // Specific call to find sum of exercise points
-    $.get("/exercise/points", function(data) {
+    $.get("/exercise/points", function (data) {
         console.log("Sum of exercise points: " + data);
         $("#sumdisplay").empty();
         if (!data) {
