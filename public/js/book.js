@@ -3,7 +3,7 @@
 $(function () {
 
     // Create task in the database.
-    $("#newbook").on("submit", function (event) {
+    $("#addbook").on("submit", function (event) {
         event.preventDefault();
         var userId = $(this).data("user.Id");
         var newBook = {
@@ -25,7 +25,7 @@ $(function () {
     });
 
     // Update task to true on completed.
-    $(".complete").on("click", function (event) {
+    $("#completeBook").on("click", function (event) {
         event.preventDefault();
         var id = $(this).data("id");
         var bookStatus = {
@@ -33,7 +33,7 @@ $(function () {
         }
 
         // Send the PUT request.
-        $.ajax("/api/tasks/" + id, {
+        $.ajax("/api/books/" + id, {
             type: "PUT",
             data: bookStatus
         }).then(function () {
