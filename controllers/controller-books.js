@@ -57,7 +57,7 @@ router.put("/book/update", isLoggedIn, function (req, res) {
             id: req.params.id
         }
     }).then(function (dbBook) {
-        if (dbTask.changedRows === 0) {
+        if (dbBook.changedRows === 0) {
             // If no rows were changed, then the ID must not exist, so 404.
             return res.status(404).end();
         } else {

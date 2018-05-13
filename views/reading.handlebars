@@ -43,7 +43,7 @@
                                 <td>{{this.author}}</td>
 
                                 <td>
-                                    <button type="button" class="complete btn btn-warning" id="completeBook" data-id="{{this.id}}" data-newCompleted="{{completed}}">
+                                    <button type="button" class="complete btn btn-warning" id="completedBook" data-id="{{this.id}}" data-newCompleted="{{completed}}">
                                         <span class="fa fa-check"></span>
                                     </button>
                                 </td>
@@ -100,7 +100,7 @@
     <div class="row">
 
         <!-- Tasks to do -->
-        {{!--
+
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-heading" id="lefthead">
@@ -123,7 +123,7 @@
                                 <td>{{this.value}}</td>
                                 <td>{{this.estimated_time}}</td>
                                 <td>
-                                    <button type="button" class="btn btn-warning" id="completeBook" data-id="{{this.id}}" data-newCompleted="{{completed}}">
+                                    <button type="button" class="complete btn btn-warning" id="completeBook" data-id="{{this.id}}" data-newCompleted="{{completed}}">
                                         <span class="fa fa-check"></span>
                                     </button>
                                 </td>
@@ -133,10 +133,10 @@
                     </table>
                 </div>
             </div>
-        </div> --}}
+        </div>
 
-        <!-- Completed Tasks -->
         {{!--
+        <!-- Completed Tasks -->--}} {{!--
         <div class="col-sm-6">
             <div class="panel panel-default">
 
