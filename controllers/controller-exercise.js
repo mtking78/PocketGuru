@@ -18,7 +18,7 @@ function isLoggedIn(req, res, next) {
 // =============================================================
 
 // Request to find and display all exercise tasks (complete/incomplete).
-router.get("/exercise", function (req, res) {
+router.get("/exercise", isLoggedIn, function (req, res) {
     db.Task.findAll({
         where: {
             category: "Exercise",
@@ -69,7 +69,8 @@ router.post("/exercise/create", isLoggedIn, function (req, res) {
         task_name: req.body.task_name,
         category: req.body.category,
         value: req.body.value,
-        estimated_time: req.body.estimated_time,
+        // estimated_time: req.body.estimated_time,
+        frequency: req.body.frequency,
         userId: req.user.id
     }).then(function (results) {
         return res.json(results);
@@ -77,7 +78,7 @@ router.post("/exercise/create", isLoggedIn, function (req, res) {
 });
 
 // Set task completed status to true.
-router.put("/exercise/update", function (req, res) {
+router.put("/exercise/update", isLoggedIn, function (req, res) {
     db.Task.update({
         completed: req.body.completed
     }, {
@@ -96,7 +97,7 @@ router.put("/exercise/update", function (req, res) {
 });
 
 // Delete task from db.
-router.delete("/exercise/delete", function (req, res) {
+router.delete("/exercise/delete", isLoggedIn, function (req, res) {
     db.Task.destroy({
         where: {
             id: req.params.id

@@ -16,8 +16,12 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
-        estimated_time: {
-            type: DataTypes.INTEGER,
+        // estimated_time: {
+        //     type: DataTypes.INTEGER,
+        //     allowNull: false
+        // }
+        frequency: {
+            type: DataTypes.STRING,
             allowNull: false
         }
     });

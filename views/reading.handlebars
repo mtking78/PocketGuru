@@ -1,18 +1,58 @@
-<div class="container">
+<body class="index">
+    <div class="container home">
 
-    <div class="jumbotron">
-        <h1 id="color-override">Reading List</h1>
-    </div>
 
-    <div class="row">
-        <div class="col-sm-9">
-            <ul>
-                {{#each books}}
-                <li>
-                    <span>Book: {{this.book_title}} -{{this.author}}</span>
-                </li>
-                {{/each}}
-            </ul>
+        <div class="jumbotron">
+            <h1 class="title text-center">POCKET GURU</h1>
+            <h2 class="morning-tasks-title text-center">Reading</h2>
+            <p class="lead">
+                Reading is an integral part of the day to keep a healthy body and mind!
+            </p>
+            <div class="row">
+                <div class="col-6 text-center">
+                    <p id="points">Great job! So far, you have earned
+                        <span class="well" id="sumdisplay"></span> points today!</p>
+                </div>
+                <div class="col-6 text-center">
+                    <p>To get all of your reading points, jump into a book for 20 minutes.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Tasks to do -->
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="lefthead">
+                    <strong>Boost that Brain!</strong>
+                </div>
+                <div class="panel-body">
+
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Reading List</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each books}}{{#unless completed}}
+                            <tr>
+                                <td>{{this.book_title}}</td>
+                                <td>{{this.author}}</td>
+
+                                <td>
+                                    <button type="button" class="complete btn btn-warning" id="complete" data-id="{{this.id}}" data-newCompleted="{{completed}}">
+                                        <span class="fa fa-check"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            {{/unless}} {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
 
@@ -52,88 +92,90 @@
             </panel>
         </div> --}}
 
+        <!-- /row -->
     </div>
-</div>
-<!-- /jumbotron -->
+    </div>
+    <!-- /jumbotron -->
 
-<div class="row">
+    <div class="row">
 
-    <!-- Tasks to do -->
-    <div class="col-sm-6">
-        <div class="panel panel-default">
-            <div class="panel-heading" id="lefthead">
-                <strong>Read!</strong>
-            </div>
-            <div class="panel-body">
+        <!-- Tasks to do -->
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading" id="lefthead">
+                    <strong>Read!</strong>
+                </div>
+                <div class="panel-body">
 
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Book</th>
-                            <th>Points</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each books}} {{#unless completed}}
-                        <tr>
-                            <td>{{this.title}}</td>
-                            <td>{{this.value}}</td>
-                            <td>{{this.estimated_time}}</td>
-                            <td>
-                                <button type="button" class="complete btn btn-warning" id="complete" data-id="{{this.id}}" data-newCompleted="{{completed}}">
-                                    <span class="fa fa-check"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        {{/unless}} {{/each}}
-                    </tbody>
-                </table>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Book</th>
+                                <th>Points</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each books}} {{#unless completed}}
+                            <tr>
+                                <td>{{this.title}}</td>
+                                <td>{{this.value}}</td>
+                                <td>{{this.estimated_time}}</td>
+                                <td>
+                                    <button type="button" class="complete btn btn-warning" id="complete" data-id="{{this.id}}" data-newCompleted="{{completed}}">
+                                        <span class="fa fa-check"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            {{/unless}} {{/each}}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
+
+        <!-- Completed Tasks -->
+        {{!--
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+
+                <div class="panel-heading" id="righthead">
+                    <strong>Today's Achievements</strong>
+                </div>
+
+                <div class="panel-body">
+                    <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th>Exercise</th>
+                                <th>Points</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {{#each tasks}} {{#if completed}}
+                            <tr>
+                                <td>{{this.task_name}}</td>
+                                <td>{{this.value}}</td>
+                                <td>{{this.estimated_time}}</td>
+                                <td>
+                                    <button type="button" class="remove btn btn-danger" id="remove" data-id="{{this.id}}">
+                                        <span class="fa fa-trash"></span>
+                                    </button>
+                                </td>
+                            </tr>
+                            {{/if}} {{/each}}
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div> --}}
+
     </div>
-
-    <!-- Completed Tasks -->
-    {{!--
-    <div class="col-sm-6">
-        <div class="panel panel-default">
-
-            <div class="panel-heading" id="righthead">
-                <strong>Today's Achievements</strong>
-            </div>
-
-            <div class="panel-body">
-                <table class="table table-striped">
-
-                    <thead>
-                        <tr>
-                            <th>Exercise</th>
-                            <th>Points</th>
-                            <th>Time</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {{#each tasks}} {{#if completed}}
-                        <tr>
-                            <td>{{this.task_name}}</td>
-                            <td>{{this.value}}</td>
-                            <td>{{this.estimated_time}}</td>
-                            <td>
-                                <button type="button" class="remove btn btn-danger" id="remove" data-id="{{this.id}}">
-                                    <span class="fa fa-trash"></span>
-                                </button>
-                            </td>
-                        </tr>
-                        {{/if}} {{/each}}
-                    </tbody>
-
-                </table>
-            </div>
-        </div>
-    </div> --}}
-
-</div>
-<!-- /row -->
-</div>
-<!-- /container -->
+    <!-- /row -->
+    </div>
+    <!-- /container -->
+</body>
