@@ -32,18 +32,18 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Reading List</th>
-
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Complete</th>
                             </tr>
                         </thead>
                         <tbody>
                             {{#each books}}{{#unless completed}}
                             <tr>
-                                <td>{{this.book_title}}</td>
+                                <td>{{this.title}}</td>
                                 <td>{{this.author}}</td>
-
                                 <td>
-                                    <button type="button" class="complete btn btn-warning" id="completedBook" data-id="{{this.id}}" data-newCompleted="{{completed}}">
+                                    <button type="button" class="complete btn btn-warning" id="completeBook" data-id="{{this.id}}" data-newCompleted="{{completed}}">
                                         <span class="fa fa-check"></span>
                                     </button>
                                 </td>
@@ -117,18 +117,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{#each books}} {{#unless completed}}
+                            {{#each books}} {{#if completed}}
                             <tr>
                                 <td>{{this.title}}</td>
                                 <td>{{this.value}}</td>
                                 <td>{{this.estimated_time}}</td>
                                 <td>
-                                    <button type="button" class="complete btn btn-warning" id="completeBook" data-id="{{this.id}}" data-newCompleted="{{completed}}">
-                                        <span class="fa fa-check"></span>
+                                    <button type="button" class="complete btn btn-warning" id="removeBook" data-id="{{this.id}}">
+                                        <span class="fa fa-trash"></span>
                                     </button>
                                 </td>
                             </tr>
-                            {{/unless}} {{/each}}
+                            {{/if}} {{/each}}
                         </tbody>
                     </table>
                 </div>
