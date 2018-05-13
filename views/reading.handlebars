@@ -18,13 +18,13 @@
 
         <div class="col-sm-9">
             <panel>
-                <form class="create-form">
+                <form class="create-form" id="newbook">
                     <div class="form-group">
                         <label for="newbook" id="color-override">New Book:</label>
-                        <input type="text" id="newbook" name="book_name">
+                        <input type="text" id="newbook" name="title">
                         <br>
                         <label for="newbookauthor" id="color-override">Author:</label>
-                        <input type="text" id="newbookauthor" name="author_name">
+                        <input type="text" id="newbookauthor" name="author">
                         <br>
                         <input type="hidden" type="text" id="category" value="Books">
                         <label for="value" id="color-override">Value:</label>
@@ -33,7 +33,7 @@
                         <label for="time" id="color-override">Estimated Time:</label>
                         <input type="number" min="1" max="60" id="time" name="estimated_time">
                         <br>
-                        <button type="submit" class="btn btn-success" id="addtask">
+                        <button type="submit" class="btn btn-success" id="addbook">
                             <span class="fa fa-thumbs-up"></span>
                         </button>
                     </div>
@@ -41,6 +41,7 @@
             </panel>
         </div>
 
+        {{!--
         <div class="col-sm-3">
             <panel>
                 <h3>Total Points</h3>
@@ -49,7 +50,7 @@
                     <span id="sumdisplay">{{#each tasks}}{{???}}{{/each}}</span>
                 </div>
             </panel>
-        </div>
+        </div> --}}
 
     </div>
 </div>
@@ -61,7 +62,7 @@
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-heading" id="lefthead">
-                <strong>Get Sweaty!</strong>
+                <strong>Read!</strong>
             </div>
             <div class="panel-body">
 
@@ -74,9 +75,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        {{#each tasks}} {{#unless completed}}
+                        {{#each books}} {{#unless completed}}
                         <tr>
-                            <td>{{this.task_name}}</td>
+                            <td>{{this.title}}</td>
                             <td>{{this.value}}</td>
                             <td>{{this.estimated_time}}</td>
                             <td>
@@ -93,6 +94,7 @@
     </div>
 
     <!-- Completed Tasks -->
+    {{!--
     <div class="col-sm-6">
         <div class="panel panel-default">
 
@@ -129,7 +131,7 @@
                 </table>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 </div>
 <!-- /row -->

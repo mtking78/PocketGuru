@@ -55,7 +55,8 @@ app.set("view engine", "handlebars");
 // =============================================================
 var indexRoutes = require("./controllers/controller-model.js");
 var exerciseRoutes = require("./controllers/controller-exercise.js");
-app.use(indexRoutes, exerciseRoutes);
+var readingRoutes = require("./controllers/controller-books.js");
+app.use(indexRoutes, exerciseRoutes, readingRoutes);
 
 
 // Requiring our models for syncing

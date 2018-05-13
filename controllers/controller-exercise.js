@@ -34,7 +34,7 @@ router.get("/exercise", function (req, res) {
 });
 
 // Request to find sum of exercise points
-router.get("/exercise/points", function (req, res) {
+router.get("/exercise/points", isLoggedIn, function (req, res) {
     db.Task.sum("value", {
         where: {
             category: "Exercise",
@@ -49,7 +49,7 @@ router.get("/exercise/points", function (req, res) {
 });
 
 // Check to see if any tasks remain incomplete
-router.get("/exercise/alltasks", function (req, res) {
+router.get("/exercise/alltasks", isLoggedIn, function (req, res) {
     db.Task.findOne({
         where: {
             category: "Exercise",
