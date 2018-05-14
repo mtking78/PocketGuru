@@ -99,28 +99,33 @@
 
 
         <div class="col-sm-9">
-            <panel>
-                <form class="create-form" id="addbook">
-                    <div class="form-group">
-                        <label for="newbook" id="color-override">New Book:</label>
-                        <input type="text" id="newbook" name="title">
-                        <br>
-                        <label for="newbookauthor" id="color-override">Author:</label>
-                        <input type="text" id="newbookauthor" name="author">
-                        <br>
-                        <input type="hidden" type="text" id="category" value="Books">
-                        <label for="value" id="color-override">Value:</label>
-                        <input type="number" min="1" max="10" id="value" name="value">
-                        <br>
-                        <label for="time" id="color-override">Estimated Time:</label>
-                        <input type="number" min="1" max="60" id="time" name="estimated_time">
-                        <br>
-                        <button type="submit" class="btn btn-success" id="addbook">
-                            <span class="fa fa-thumbs-up"></span>
-                        </button>
-                    </div>
-                </form>
-            </panel>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <strong>Add a New Book</strong>
+                </div>
+                <div class="panel-body">
+                    <form class="create-form" id="addbook">
+                        <div class="form-group">
+                            <label for="newbook" id="color-override">New Book:</label>
+                            <input type="text" id="newbook" name="title">
+                            <br>
+                            <label for="newbookauthor" id="color-override">Author:</label>
+                            <input type="text" id="newbookauthor" name="author">
+                            <br>
+                            <input type="hidden" type="text" id="category" value="Books">
+                            <label for="value" id="color-override">Value:</label>
+                            <input type="number" min="1" max="10" id="value" name="value">
+                            <br>
+                            <label for="time" id="color-override">Estimated Time:</label>
+                            <input type="number" min="1" max="60" id="time" name="estimated_time">
+                            <br>
+                            <button type="submit" class="btn btn-success" id="addbook">
+                                <span class="fa fa-thumbs-up"></span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
 
         {{!--
