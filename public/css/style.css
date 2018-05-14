@@ -1,3 +1,9 @@
+/* *****Navbar***** */
+#navbar-logo {
+    height: inherit;
+    position: relative;
+    bottom: 50%;
+}
 
 .home {
     background-image: url(mandala.png);
