@@ -134,6 +134,7 @@
                                 <th>Book</th>
                                 <th>Points</th>
                                 <th>Time</th>
+                                <th>Delete</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -143,7 +144,7 @@
                                 <td>{{this.value}}</td>
                                 <td>{{this.estimated_time}}</td>
                                 <td>
-                                    <button type="button" class="complete btn btn-warning" id="removeBook" data-id="{{this.id}}">
+                                    <button type="button" class="removeBook complete btn btn-warning" id="removeBook" data-id="{{this.id}}">
                                         <span class="fa fa-trash"></span>
                                     </button>
                                 </td>

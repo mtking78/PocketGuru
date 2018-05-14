@@ -43,17 +43,17 @@ $(function () {
     });
 
     // Delete task from the database.
-    // $(".remove").on("click", function (event) {
-    //     event.preventDefault();
+    $(".removeBook").on("click", function (event) {
+        event.preventDefault();
 
-    //     var id = $(this).data("id");
+        var id = $(this).data("id");
 
-    //     // Send the DELETE request.
-    //     $.ajax({
-    //         type: "DELETE",
-    //         url: "/api/tasks/" + id
-    //     }).then(location.reload());
-    // });
+        // Send the DELETE request.
+        $.ajax({
+            type: "DELETE",
+            url: "/api/books/" + id
+        }).then(location.reload());
+    });
 
 });
 
@@ -73,9 +73,9 @@ $(function () {
 //     $.get("/exercise/alltasks", function (data) {
 //         console.log(data);
 //         if (data) {
-//             console.log("Not done yet.");
+//             console.log("There is still more to read!.");
 //         } else {
-//             console.log("All done.");
+//             console.log("Finished reading.");
 //         }
 //     });
 // });
