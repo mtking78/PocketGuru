@@ -25,7 +25,7 @@ $(function () {
     });
 
     // Update task to true on completed.
-    $("#completeBook").on("click", function (event) {
+    $(".completeBook").on("click", function (event) {
         event.preventDefault();
         var id = $(this).data("id");
         var bookStatus = {

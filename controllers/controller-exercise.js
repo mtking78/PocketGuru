@@ -78,7 +78,7 @@ router.post("/exercise/create", isLoggedIn, function (req, res) {
 });
 
 // Set task completed status to true.
-router.put("/exercise/update", isLoggedIn, function (req, res) {
+router.put("/exercise/update/:id", isLoggedIn, function (req, res) {
     db.Task.update({
         completed: req.body.completed
     }, {

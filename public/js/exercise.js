@@ -25,15 +25,17 @@ $(function () {
     });
 
     // Update task to true on completed.
-    $("#completeExercise").on("click", function (event) {
-        event.preventDefault();
+    $(".completeExercise").on("click", function (event) {
+
+        // event.preventDefault();
         var id = $(this).data("id");
         var taskStatus = {
             completed: true
         }
 
         // Send the PUT request.
-        $.ajax("/api/tasks/" + id, {
+        // $.ajax("/api/tasks/" + id, {
+        $.ajax("/exercise/update/" + id, {
             type: "PUT",
             data: taskStatus
         }).then(function () {
@@ -43,7 +45,7 @@ $(function () {
     });
 
     // Delete task from the database.
-    $("#removeExercise").on("click", function (event) {
+    $(".removeExercise").on("click", function (event) {
         event.preventDefault();
 
         var id = $(this).data("id");
