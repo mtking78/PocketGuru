@@ -5,16 +5,12 @@ var router = express.Router();
 var db = require("../models");
 
 function isLoggedIn(req, res, next) {
-
     if (req.isAuthenticated())
-
         return next();
-
     res.redirect('/signin');
-
 }
 
-// *** Routes
+// *** Exercise Routes
 // =============================================================
 
 // Request to find and display all exercise tasks (complete/incomplete).

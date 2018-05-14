@@ -1,22 +1,19 @@
+// *** Dependencies
+// =============================================================
 var express = require("express");
-
 var router = express.Router();
-
-// Import the model (cat.js) to use its database functions.
 var db = require("../models");
 
-
 function isLoggedIn(req, res, next) {
-
     if (req.isAuthenticated())
-
         return next();
-
     res.redirect('/signin');
-
 }
 
-// Create all our routes and set up logic within those routes where required.
+// *** Book Routes
+// =============================================================
+
+// Request to find and display all books (complete/incomplete).
 router.get("/book", isLoggedIn, function (req, res) {
     console.log('It fired!')
     db.Book.findAll({
@@ -33,7 +30,7 @@ router.get("/book", isLoggedIn, function (req, res) {
 });
 
 
-// Add new task to the db.
+// Add new book to the db.
 router.post("/book/create", isLoggedIn, function (req, res) {
     console.log("req.body: " + req.body);
     console.log("req.post: " + req.post);
@@ -61,9 +58,9 @@ router.put("/api/books/:id", isLoggedIn, function (req, res) {
     });
 });
 
-// Delete task from db.
-router.delete("/exercise/delete", isLoggedIn, function (req, res) {
-    db.Task.destroy({
+// Delete book from db.
+router.delete("/books/remove/:id", isLoggedIn, function (req, res) {
+    db.Book.destroy({
         where: {
             id: req.params.id
         }
