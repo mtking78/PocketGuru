@@ -113,4 +113,14 @@ router.delete("/exercise/delete", isLoggedIn, function (req, res) {
     });
 });
 
+// Check to see if any tasks remain incomplete
+router.get("/userinfo", isLoggedIn, function (req, res) {
+    db.user.findOne({})
+    .then(function (data) {
+        // console.log(data);
+        console.log(data.dataValues.firstname);
+        return res.json(data.dataValues.firstname);
+    });
+});
+
 module.exports = router;

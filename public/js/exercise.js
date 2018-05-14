@@ -63,7 +63,7 @@ $(function () {
 $(document).ready(function () {
     // Specific call to find sum of exercise points
     $.get("/exercise/points", function (data) {
-        console.log("Sum of exercise points: " + data);
+        // console.log("Sum of exercise points: " + data);
         $("#sumdisplay").empty();
         if (!data) {
             $("#sumdisplay").html("Get to work, slacker!");
@@ -74,11 +74,17 @@ $(document).ready(function () {
 
     // Check if any incomplete tasks exist
     $.get("/exercise/alltasks", function (data) {
-        console.log(data);
+        // console.log(data);
         if (data) {
             console.log("Not done yet.");
         } else {
             console.log("All done.");
         }
     });
+
+    // Display user name... perhaps more later
+    $.get("/userinfo", function (data) {
+        console.log("User name: " + data);
+        $(".username").html(data);
+    })
 });
