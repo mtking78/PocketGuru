@@ -61,5 +61,22 @@ router.put("/api/books/:id", isLoggedIn, function (req, res) {
     });
 });
 
+// Delete task from db.
+router.delete("/exercise/delete", isLoggedIn, function (req, res) {
+    db.Task.destroy({
+        where: {
+            id: req.params.id
+        }
+    }).then(function (results) {
+        if (results.changedRows === 0) {
+            // If no rows were changed, then the ID must not exist, so 404.
+            return res.status(404).end();
+        } else {
+            return res.json(results);
+            res.status(200).end();
+        }
+    });
+});
+
 // Export routes for server.js to use.
 module.exports = router;
