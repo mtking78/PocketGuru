@@ -23,34 +23,70 @@ $(document).ready(function () {
 
 
     function populateSuccessWell() {
-        alert("populateSuccessWell");
-        for (var i = 0; i < successAffirmations.length; i++) {
-            var successWell = $("<div>");
-            successWell.addClass("success-well-class");
-            successWell.attr("data-well", successAffirmations[i]);
-            successWell.text(successAffirmations[i]);
-            $("#affirmations-view").append(successWell);
-        }
+
+        var randomSuccess = Math.floor(Math.random() * successAffirmations.length);
+
+        $("#affirmations-view").empty();
+        var successWell = $("<div>");
+        successWell.addClass("success-well-class");
+        successWell.attr("data-well", successAffirmations[randomSuccess]);
+        successWell.text(successAffirmations[randomSuccess]);
+        $("#affirmations-view").append(successWell);
     }
 
-
-    // $("#success-well").dialog({
-    //     autoOpen: false,
-    //     show: {
-    //         effect: "blind",
-    //         duration: 1000
-    //     },
-    //     hide: {
-    //         effect: "explode",
-    //         duration: 1000
-    //     }
-    // });
-
     $("#success-btn").on("click", function () {
-        alert("You clicked a button");
-
         populateSuccessWell();
         //$("#success-well").dialog("open");
     });
 
+    function populateWealthWell() {
+
+        var randomWealth = Math.floor(Math.random() * wealthAffirmations.length);
+
+        $("#affirmations-view").empty();
+        var wealthWell = $("<div>");
+        wealthWell.addClass("wealth-well-class");
+        wealthWell.attr("data-well", wealthAffirmations[randomWealth]);
+        wealthWell.text(wealthAffirmations[randomWealth]);
+        $("#affirmations-view").append(wealthWell);
+    }
+
+    $("#wealth-btn").on("click", function () {
+        populateWealthWell();
+        //$("#success-well").dialog("open");
+    });
+
+    function populateLoveWell() {
+
+        var randomLove = Math.floor(Math.random() * loveAffirmations.length);
+
+        $("#affirmations-view").empty();
+        var loveWell = $("<div>");
+        loveWell.addClass("love-well-class");
+        loveWell.attr("data-well", loveAffirmations[randomLove]);
+        loveWell.text(loveAffirmations[randomLove]);
+        $("#affirmations-view").append(loveWell);
+    }
+
+    $("#love-btn").on("click", function () {
+        populateLoveWell();
+        //$("#success-well").dialog("open");
+    });
+
+    function populateHealthWell() {
+
+        var randomHealth = Math.floor(Math.random() * healthAffirmations.length);
+
+        $("#affirmations-view").empty();
+        var healthWell = $("<div>");
+        healthWell.addClass("wealth-well-class");
+        healthWell.attr("data-well", healthAffirmations[randomHealth]);
+        healthWell.text(healthAffirmations[randomHealth]);
+        $("#affirmations-view").append(healthWell);
+    }
+
+    $("#health-btn").on("click", function () {
+        populateHealthWell();
+        //$("#success-well").dialog("open");
+    });
 })
