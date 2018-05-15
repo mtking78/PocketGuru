@@ -5,9 +5,7 @@
 
     <div class="container home">
 
-
         <div class="jumbotron text-center">
-
             <h2 class="morning-tasks-title " id="title">Reading</h2>
             <p class="lead">
                 Reading is an integral part of the day to keep a healthy body and mind!
@@ -23,7 +21,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="row">
             <!-- Books to read -->
@@ -60,8 +57,7 @@
                 </div>
             </div>
 
-            <!-- Tasks to do -->
-
+            <!-- Completed Books -->
             <div class="col-sm-6">
                 <div class="panel panel-default">
                     <div class="panel-heading" id="lefthead">
@@ -96,101 +92,54 @@
                     </div>
                 </div>
             </div>
+
         </div>
-
-
-        <div class="col-sm-9">
-            <div class="panel panel-default">
-                <div class="panel-heading" id="centerhead">
-                    <strong>Add a New Book</strong>
-                </div>
-                <div class="panel-body">
-                    <form class="create-form" id="addbook">
-                        <div class="form-group">
-                            <label for="newbook" id="color-override">New Book:</label>
-                            <input type="text" id="newbook" name="title">
-                            <br>
-                            <label for="newbookauthor" id="color-override">Author:</label>
-                            <input type="text" id="newbookauthor" name="author">
-                            <br>
-                            <input type="hidden" type="text" id="category" value="Books">
-                            <label for="value" id="color-override">Value:</label>
-                            <input type="number" min="1" max="10" id="value" name="value">
-                            <br>
-                            <label for="time" id="color-override">Estimated Time:</label>
-                            <input type="number" min="1" max="60" id="time" name="estimated_time">
-                            <br>
-                            <button type="submit" class="btn btn-success" id="addbook">
-                                <span class="fa fa-thumbs-up"></span>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        {{!--
-        <div class="col-sm-3">
-            <panel>
-                <h3>Total Points</h3>
-                <div class="well">
-                    <!-- need to display sum (no name, just an integer) -->
-                    <span id="sumdisplay">{{#each tasks}}{{???}}{{/each}}</span>
-                </div>
-            </panel>
-        </div> --}}
-
-        <!-- /row -->
-
-        <!-- /jumbotron -->
 
         <div class="row">
 
+            <div class="col-sm-2">
+                <!-- Placeholder -->
+            </div>
 
-
-            {{!--
-            <!-- Completed Tasks -->--}} {{!--
-            <div class="col-sm-6">
+            <div class="col-sm-8">
                 <div class="panel panel-default">
 
-                    <div class="panel-heading" id="righthead">
-                        <strong>Today's Achievements</strong>
+                    <div class="panel-heading" id="centerhead">
+                        <strong>Add a New Book</strong>
                     </div>
 
                     <div class="panel-body">
-                        <table class="table table-striped">
-
-                            <thead>
-                                <tr>
-                                    <th>Exercise</th>
-                                    <th>Points</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                {{#each tasks}} {{#if completed}}
-                                <tr>
-                                    <td>{{this.task_name}}</td>
-                                    <td>{{this.value}}</td>
-                                    <td>{{this.estimated_time}}</td>
-                                    <td>
-                                        <button type="button" class="remove btn btn-danger" id="remove" data-id="{{this.id}}">
-                                            <span class="fa fa-trash"></span>
-                                        </button>
-                                    </td>
-                                </tr>
-                                {{/if}} {{/each}}
-                            </tbody>
-
-                        </table>
+                        <form class="create-form" id="addbook">
+                            <div class="form-group">
+                                <label for="newbook" id="color-override">New Book:</label>
+                                <input type="text" id="newbook" name="title">
+                                <br>
+                                <label for="newbookauthor" id="color-override">Author:</label>
+                                <input type="text" id="newbookauthor" name="author">
+                                <br>
+                                <input type="hidden" type="text" id="category" value="Books">
+                                <label for="value" id="color-override">Value:</label>
+                                <input type="number" min="1" max="10" id="value" name="value">
+                                <br>
+                                <label for="time" id="color-override">Estimated Time:</label>
+                                <input type="number" min="1" max="60" id="time" name="estimated_time">
+                                <br>
+                                <button type="submit" class="btn btn-success" id="addbook">
+                                    <span class="fa fa-thumbs-up"></span>
+                                </button>
+                            </div>
+                        </form>
                     </div>
+
                 </div>
-            </div> --}}
+            </div>
+
+            <div class="col-sm-2">
+                <!-- Placeholder -->
+            </div>
 
         </div>
-        <!-- /row -->
+
     </div>
-    <!-- /container -->
 
 </body>
