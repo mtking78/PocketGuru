@@ -16,8 +16,8 @@
     background-image: url(../images/mandalaTopHalf.png);
     left: 100px;
     background-repeat: no-repeat;
-    background-position: center;
-    background-position: fixed;
+    background-position: top;
+    
 }
 
 /* .work {
