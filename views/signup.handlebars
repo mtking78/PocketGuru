@@ -1,23 +1,31 @@
-<body>
+<body >
     <div class="container home">
 
         <div class="jumbotron">
-            <h1 id="title">POCKET GURU</h1>
+            <h1 id="title">Pocket Guru</h1>
             <hr>
 
             <form id="signup" name="signup" method="post" action="/signup">
-                <label for="email">Email Address</label>
+                <label for="email" id="filler">Email Address</label>
                 <input class="text" name="email" type="email" />
-                <label for="firstname">First Name</label>
+                <label for="firstname" id="filler">First Name</label>
                 <input name="firstname" type="text" />
-                <label for="lastname">Last Name</label>
+                <label for="lastname" id="filler">Last Name</label>
                 <input name="lastname" type="text" />
-                <label for="password">Password</label>
+                <label for="password" id="filler">Password</label>
                 <input name="password" type="password" />
                 <input class="btn" type="submit" value="Sign Up" />
             </form>
         </div>
 
-        <a href="/signin">I already have an account!</a>
+        <a href="/signin" id="filler">I already have an account!</a>
     </div>
+    <footer id="footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018  Guru Gangstahs {{!--
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a> --}}
+            </div>
+        </div>
+    </footer>
 </body>
