@@ -21,72 +21,31 @@ $(document).ready(function () {
 
     var healthAffirmations = ["I meet each day with energy and vigor.", "I am a positive person.", "My body is one with infinite intelligence, and it is healing in accordance with the perfect model of health.", "I am whole and I am happy.", "I am strong, I am vibrant, I am in perfect health.", "I love every cell of my body.", "I return my body to optimal health by giving it what it needs on every level.", "I am pain free and totally in sync with life.", "My body is always doing its best to create perfect health.", "I lovingly do everything I can to assist my body in maintaining perfect health.", "I devote a portion of my time to helping others. It is good for my own health.", "I make healthy choices. I have respect for myself.", "I am grateful for my healthy body. I love life.", "My happy thoughts help create my healthy body."];
 
+    function populateAffirmation(affirmationsArr) {
 
-    function populateSuccessWell() {
-
-        var randomSuccess = Math.floor(Math.random() * successAffirmations.length);
+        var randomAffirmation = Math.floor(Math.random() * affirmationsArr.length);
 
         $("#affirmations-view").empty();
-        var successWell = $("<div>");
-        successWell.addClass("success-well-class");
-        successWell.attr("data-well", successAffirmations[randomSuccess]);
-        successWell.text(successAffirmations[randomSuccess]);
-        $("#affirmations-view").append(successWell);
+        var affirmation = $("<div>");
+        affirmation.addClass("success-well-class");
+        affirmation.attr("data-well", affirmationsArr[randomAffirmation]);
+        affirmation.text(affirmationsArr[randomAffirmation]);
+        $("#affirmations-view").append(affirmation);
     }
 
     $("#success-btn").on("click", function () {
-        populateSuccessWell();
-        //$("#success-well").dialog("open");
+        populateAffirmation(successAffirmations);
+
     });
-
-    function populateWealthWell() {
-
-        var randomWealth = Math.floor(Math.random() * wealthAffirmations.length);
-
-        $("#affirmations-view").empty();
-        var wealthWell = $("<div>");
-        wealthWell.addClass("wealth-well-class");
-        wealthWell.attr("data-well", wealthAffirmations[randomWealth]);
-        wealthWell.text(wealthAffirmations[randomWealth]);
-        $("#affirmations-view").append(wealthWell);
-    }
-
     $("#wealth-btn").on("click", function () {
-        populateWealthWell();
-        //$("#success-well").dialog("open");
+        populateAffirmation(wealthAffirmations);
+
     });
-
-    function populateLoveWell() {
-
-        var randomLove = Math.floor(Math.random() * loveAffirmations.length);
-
-        $("#affirmations-view").empty();
-        var loveWell = $("<div>");
-        loveWell.addClass("love-well-class");
-        loveWell.attr("data-well", loveAffirmations[randomLove]);
-        loveWell.text(loveAffirmations[randomLove]);
-        $("#affirmations-view").append(loveWell);
-    }
-
     $("#love-btn").on("click", function () {
-        populateLoveWell();
-        //$("#success-well").dialog("open");
+        populateAffirmation(loveAffirmations);
+
     });
-
-    function populateHealthWell() {
-
-        var randomHealth = Math.floor(Math.random() * healthAffirmations.length);
-
-        $("#affirmations-view").empty();
-        var healthWell = $("<div>");
-        healthWell.addClass("wealth-well-class");
-        healthWell.attr("data-well", healthAffirmations[randomHealth]);
-        healthWell.text(healthAffirmations[randomHealth]);
-        $("#affirmations-view").append(healthWell);
-    }
-
     $("#health-btn").on("click", function () {
-        populateHealthWell();
-        //$("#success-well").dialog("open");
+        populateAffirmation(healthAffirmations);
     });
 })
