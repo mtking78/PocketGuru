@@ -11,7 +11,7 @@ $(function () {
             completed: 0,
             value: $("#value").val().trim(),
             // estimated_time: $("#time").val().trim(),
-            frequency: $("#frequency").val(),
+            frequency: $("#exercise-frequency").val(),
             userId: userId
         };
 
