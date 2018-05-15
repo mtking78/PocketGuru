@@ -21,36 +21,31 @@ $(document).ready(function () {
 
     var healthAffirmations = ["I meet each day with energy and vigor.", "I am a positive person.", "My body is one with infinite intelligence, and it is healing in accordance with the perfect model of health.", "I am whole and I am happy.", "I am strong, I am vibrant, I am in perfect health.", "I love every cell of my body.", "I return my body to optimal health by giving it what it needs on every level.", "I am pain free and totally in sync with life.", "My body is always doing its best to create perfect health.", "I lovingly do everything I can to assist my body in maintaining perfect health.", "I devote a portion of my time to helping others. It is good for my own health.", "I make healthy choices. I have respect for myself.", "I am grateful for my healthy body. I love life.", "My happy thoughts help create my healthy body."];
 
+    function populateAffirmation(affirmationsArr) {
 
-    function populateSuccessWell() {
-        alert("populateSuccessWell");
-        for (var i = 0; i < successAffirmations.length; i++) {
-            var successWell = $("<div>");
-            successWell.addClass("success-well-class");
-            successWell.attr("data-well", successAffirmations[i]);
-            successWell.text(successAffirmations[i]);
-            $("#affirmations-view").append(successWell);
-        }
+        var randomAffirmation = Math.floor(Math.random() * affirmationsArr.length);
+
+        $("#affirmations-view").empty();
+        var affirmation = $("<div>");
+        affirmation.addClass("success-well-class");
+        affirmation.attr("data-well", affirmationsArr[randomAffirmation]);
+        affirmation.text(affirmationsArr[randomAffirmation]);
+        $("#affirmations-view").append(affirmation);
     }
 
-
-    // $("#success-well").dialog({
-    //     autoOpen: false,
-    //     show: {
-    //         effect: "blind",
-    //         duration: 1000
-    //     },
-    //     hide: {
-    //         effect: "explode",
-    //         duration: 1000
-    //     }
-    // });
-
     $("#success-btn").on("click", function () {
-        alert("You clicked a button");
+        populateAffirmation(successAffirmations);
 
-        populateSuccessWell();
-        //$("#success-well").dialog("open");
     });
+    $("#wealth-btn").on("click", function () {
+        populateAffirmation(wealthAffirmations);
 
+    });
+    $("#love-btn").on("click", function () {
+        populateAffirmation(loveAffirmations);
+
+    });
+    $("#health-btn").on("click", function () {
+        populateAffirmation(healthAffirmations);
+    });
 })
