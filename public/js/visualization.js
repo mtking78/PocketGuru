@@ -23,14 +23,15 @@
 // module.exports
 
 
+var visionBoardImages = ["../assets/images/bighome.jpg", "../assets/images/luxuryhome.jpg", "../assets/images/tesla.jpg", "../assets/images/elon.jpg", "../assets/images/idealbody.jpg", "../assets/images/relationshipgoals.jpg", "../assets/images/paris.jpg"];
+
 function visionBoardDisplay() {
-    var visionBoardImages = ["../assets/images/bighome.jpg", "../assets/images/luxuryhome.jpg", "../assets/images/tesla.jpg", "../assets/images/elon.jpg", "../assets/images/idealbody.jpg", "../assets/images/relationshipgoals.jpg", "../assets/images/paris.jpg"];
 
     for (var i = 0; i < visionBoardImages.length; i++) {
         var pic = $("<img>");
         pic.attr("src", src);
         pic.addClass("vbimgs");
-        $("#vision-board-container").append(visionBoardImages);
+        $("#vision-board-container").append(visionBoardImages[i]);
     }
 }
 visionBoardDisplay();

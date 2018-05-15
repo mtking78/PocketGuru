@@ -2,9 +2,9 @@ var express = require("express");
 var router = express.Router();
 
 
-router.get("/affirmations", function (req, res) {
+router.get("/visualization", function (req, res) {
 
-    res.render("affirmations");
+    res.render("visualization");
 });
 
 module.exports = router;

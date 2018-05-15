@@ -1,31 +1,47 @@
 <!-- Navigation Bar -->
-<nav class="navbar navbar-default" style="position: fixed; top: 0px; width: 100%; z-index: 5;">
-  	<div class="container-fluid">
+<nav class="navbar navbar-default" style="position: fixed; top: 0px; z-index: 5;">
+	<div class="container-fluid">
+		<div class="navbar-header">
 
-    	<div class="navbar-header">
-			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>
-      		<a class="navbar-brand" id="title" alt="Home" style="font-size:35px"href="/">
-			 	Pocket Guru
-            </a>
-    	</div>
+			<a class="navbar-brand" href="/">
+				<img id="navbar-logo" alt="Home" src="assets\images\mandala.png" style="height:inherit; position:relative; bottom:50%">
+			</a>
 
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<ul class="nav navbar-nav">
-				<li><a href="/affirmations" id="filler">Affirmations</a></li>
-				<li><a href="/exercise" id="filler">Exercise</a></li>
-				<li><a href="/book" id="filler">Read</a></li>
-			</ul>
-
-			<ul class="nav navbar-nav navbar-right">
-				<!-- Name looks silly on a drop-down -->
-				<!-- <li><a href="" class="username" id="filler"></a></li> -->
-				<li><a href="/logout" id="filler"><span class="fa fa-sign-out"></span> Sign Out</a></li>
-			</ul>
 		</div>
+		<ul class="nav navbar-nav">
+			<li>
+				<a id="title" style="font-size:35px">Pocket Guru</a>
+			</li>
+			<li>
+				<a href="/book" id="filler">Books</a>
+			</li>
+			<li>
+				<a href="/exercise" id="filler">Exercise</a>
+			</li>
+			<li>
+				<a href="/affirmations" id="filler">Affirmations</a>
+			</li>
+			<li>
+				{{!--
+				<a href="/visualization" id="filler">Visualization</a>
+			</li>
+			<li>
+				<a href="/meditation" id="filler">Meditation</a>
+			</li>
+			<li>
+				<a href="/journaling" id="filler">Journaling</a>
+			</li> --}}
 
-  	</div>
+		</ul>
+
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+				<a href="" class="username" id="filler"></a>
+			</li>
+			<li>
+				<a href="/logout" id="filler">
+					<span class="fa fa-sign-out"></span> Sign Out</a>
+			</li>
+		</ul>
+	</div>
 </nav>

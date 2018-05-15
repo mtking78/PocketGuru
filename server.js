@@ -57,7 +57,10 @@ var indexRoutes = require("./controllers/controller-model.js");
 var exerciseRoutes = require("./controllers/controller-exercise.js");
 var affirmationsRoutes = require("./controllers/controller-affirmations.js");
 var booksRoutes = require("./controllers/controller-books.js");
-app.use(indexRoutes, exerciseRoutes, affirmationsRoutes, booksRoutes);
+var visualizationRoutes = require("./controllers/controller-visualization.js");
+var journalingRoutes = require("./controllers/controller-journaling.js");
+var meditationRoutes = require("./controllers/controller-meditation.js");
+app.use(indexRoutes, exerciseRoutes, affirmationsRoutes, booksRoutes, visualizationRoutes, journalingRoutes, meditationRoutes);
 
 
 // Requiring our models for syncing
