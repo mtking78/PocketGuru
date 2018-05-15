@@ -4,7 +4,7 @@ $(document).ready(function () {
     // ========== Global Displays ==========
     // Display user name in navbar... perhaps more later
     $.get("/userinfo", function (data) {
-        console.log("User name: " + data);
+        // console.log("User name: " + data);
         $(".username").html(data);
     });
 
