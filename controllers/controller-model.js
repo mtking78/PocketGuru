@@ -27,7 +27,11 @@ router.get("/", isLoggedIn, function (req, res) {
 
 // Pull the user's name to display in the navbar
 router.get("/userinfo", isLoggedIn, function (req, res) {
-    db.user.findOne({})
+    db.user.findOne({
+        where: {
+            id: req.user.id
+        }
+    })
     .then(function (data) {
         // console.log(data);
         console.log(data.dataValues.firstname);
