@@ -1,224 +1,100 @@
-.container {
-    background-image: url(/assets/images/mandala.png);
+/* *****Navbar***** */
+#navbar-logo {
+    height: inherit;
+    position: relative;
+    bottom: 50%;
 }
 
-/* .grid-container {
-    background-image: url();
-    display: grid;
-    grid-gap: 50px;
-    grid-template-columns: auto auto auto;
-    background-color: rgb(197, 229, 255); 
-    padding: 10px;
-}
-
-.grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px outset rgba(145, 145, 145, s0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
+/* 
+.home {
+    background-image: url(../images/mandala.png);
+    background-position: center;
+    background-repeat: no-repeat;
 } */
 
-.home {
-    background-image: url(mandala.png);
-    background-position: center;
-    /* background-size: ; */
-    background-repeat: no-repeat;
-}
-
 .index {
-    background-image: url(mandalaTopHalf.png);
+    background-image: url(../images/mandalaTopHalf.png);
     left: 100px;
-    /* background-size: ; */
     background-repeat: no-repeat;
+    background-position: center;
 }
 
-.login {
-    background-image: url(mandalaBttmHalf.png);
+/* .work {
+    background-image: url(../images/mandalaBttmHalf.png);
+    background-position: center;
+} */
+
+#menuBtns{
+    /* width: 600px; */
+    /* padding:zero; */
+    /* position: center; */
+    /* float:right; */
+    /* margin-bottom:20px; */
 }
 
-a {
-    text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4 {
-    font-family: 'Berkshire Swash', cursive;
-}
-
-#title {
-    font-family: 'Berkshire Swash', cursive;
-    font-color: rgba(0, 255, 255, 0.261);
-}
-
-.title {
-    font-family: 'Berkshire Swash', cursive;
-    font-color: rgba(0, 255, 255, 0.261);
-}
-
-#info {}
-
-#hour-of-power {}
-
-#lead {
-    font-size: 14px;
-    font-color: rgba(0, 255, 255, 0.261);
-}
-
-p {
-    font-family: 'Oxygen', sans-serif;
+.jumbotron {
+    background-color: rgba(0, 255, 255, 0.303);
 }
 
 .stuff {
     position: center;
 }
 
+strong{
+    font-family: 'Oxygen', sans-serif;
+    color: rgb(0, 6, 175);
+}
+
+
+.title {
+    font-family: 'Berkshire Swash', cursive;
+    color: rgb(0, 255, 255);
+}
+
+h3,
+p,
+th,
+#info {
+    font-family: 'Oxygen', sans-serif;
+    color:rgb(68, 75, 102);
+}
+
+#lefthead,
+#righthead,
+#centerhead,
+#pointshead{
+    background-color: rgba(0, 255, 255, 0.303);
+}
+
+#lead {
+    font-size: 14px;
+    color: rgba(0, 255, 255, 0.364);
+}
+
+#affirmations-view{
+    border-bottom: 6px solid rgb(53, 162, 160);
+    background-color: rgba(211, 211, 211, 0.556);
+}
+
+h1,
+h2,
+#title {
+    font-family: 'Berkshire Swash', cursive;
+    color: rgb(1, 31, 122);
+    /* color: rgb(167, 167, 167); */
+}
+
+#filler{
+    color: rgb(0, 6, 175);
+}
+
 #footer {
+    height: 50px;
     width: 100%;
-    background-color: #26a69a;
+    color: rgba(211, 211, 211, 0.556);
+    background-color: rgb(53, 162, 160);
     left: 0;
     margin-top: 25px;
-    position: absolute;
+    position: fixed;
 }
 
-/* #silence{
-    /* width: 180px;
-    height:100px;
-    padding-left: 100px;
-    padding-top: 20px; */
-
-/* }
-#affirmations{
-  
-} */
-
-/* #visualization{
-     width: 180px;
-    height:100px;
-    padding-left: 100px;
-    padding-top: 20px; 
-} */
-
-/* #exercise{
-    
-} */
-
-/* #read{
-     width: 180px;
-    height:100px;
-    padding-left: 100px;
-    padding-top: 20px; 
-} */
-
-/* #scriber{ 
-
-} */
-
-/* needs to be at the bottom of css pg*/
-
-/* need to link colors to btns */
-
-/* home pg */
-
-#morning:hover {
-    background-image: none;
-    background-color: #fff700;
-}
-
-#daily:hover {
-    background-image: none;
-    background-color: #ffa600;
-}
-
-#evening:hover {
-    background-image: none;
-    background-color: #ff0000;
-}
-
-/* index pg */
-
-#silence:hover {
-    background-image: none;
-    background-color: #a200ff;
-}
-
-#affirmations:hover {
-    background-image: none;
-    background-color: #0011ff;
-}
-
-#visualization:hover {
-    background-image: none;
-    background-color: #5aafff;
-}
-
-#exercise:hover {
-    background-image: none;
-    background-color: #5bbd4e;
-}
-
-#read:hover {
-    background-image: none;
-    background-color: #fff700;
-}
-
-#scribe:hover {
-    background-image: none;
-    background-color: #ff8400;
-}
-
-#morning-tasks-title {}
-
-#vision-board-container {
-    height: 500px;
-    width: auto;
-}
-
-#affirmations-container {}
-
-#lead {}
-
-#affirmations-description {}
-
-#title {}
-
-#signup {
-    margin-bottom: 20px;
-}
-
-#contactform li {
-    margin-bottom: 10px;
-    list-style: none;
-}
-
-input[type=text],
-select,
-textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 6px;
-    margin-bottom: 16px;
-    resize: vertical
-}
-
-textarea {
-    height: 200px;
-}
-
-input[type=submit] {
-    background-color: #4aaaaf;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-input[type=submit]:hover {
-    background-color: #cccccc;
-}

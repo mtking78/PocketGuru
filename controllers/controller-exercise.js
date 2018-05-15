@@ -29,35 +29,7 @@ router.get("/exercise", isLoggedIn, function (req, res) {
     });
 });
 
-// Request to find sum of exercise points
-router.get("/exercise/points", isLoggedIn, function (req, res) {
-    db.Task.sum("value", {
-        where: {
-            category: "Exercise",
-            completed: 1,
-            userId: req.user.id
-        }
-    }).then(function (results) {
-        // Send the data to be retrieved by model.js document.ready
-        return res.json(results);
-        console.log("Points: " + results);
-    });
-});
-
-// Check to see if any tasks remain incomplete
-router.get("/exercise/alltasks", isLoggedIn, function (req, res) {
-    db.Task.findOne({
-        where: {
-            category: "Exercise",
-            completed: false,
-            userId: req.user.id
-        }
-    }).then(function (data) {
-        return res.json(data);
-    });
-});
-
-// Add new task to the db.
+// Add new exercise task to the db.
 router.post("/exercise/create", isLoggedIn, function (req, res) {
     console.log("req.body: " + req.body);
     console.log("req.post: " + req.post);
@@ -73,7 +45,7 @@ router.post("/exercise/create", isLoggedIn, function (req, res) {
     });
 });
 
-// Set task completed status to true.
+// Set exercise task completed status to true.
 router.put("/exercise/update/:id", isLoggedIn, function (req, res) {
     db.Task.update({
         completed: req.body.completed
@@ -92,8 +64,8 @@ router.put("/exercise/update/:id", isLoggedIn, function (req, res) {
     });
 });
 
-// Delete task from db.
-router.delete("/exercise/delete", isLoggedIn, function (req, res) {
+// Delete exercise task from db.
+router.delete("/api/tasks/:id", isLoggedIn, function (req, res) {
     db.Task.destroy({
         where: {
             id: req.params.id
@@ -109,14 +81,20 @@ router.delete("/exercise/delete", isLoggedIn, function (req, res) {
     });
 });
 
-// Check to see if any tasks remain incomplete
-router.get("/userinfo", isLoggedIn, function (req, res) {
-    db.user.findOne({})
-    .then(function (data) {
-        // console.log(data);
-        console.log(data.dataValues.firstname);
-        return res.json(data.dataValues.firstname);
-    });
-});
-
+// // Delete task from db.
+// router.delete("/api/tasks/:id", function (req, res) {
+//     db.Task.destroy({
+//         where: {
+//             id: req.params.id
+//         }
+//     }).then(function (results) {
+//         if (results.changedRows === 0) {
+//             // If no rows were changed, then the ID must not exist, so 404.
+//             return res.status(404).end();
+//         } else {
+//             return res.json(results);
+//             res.status(200).end();
+//         }
+//     });
+// });
 module.exports = router;
