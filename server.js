@@ -57,8 +57,12 @@ var indexRoutes = require("./controllers/controller-model.js");
 var exerciseRoutes = require("./controllers/controller-exercise.js");
 var affirmationsRoutes = require("./controllers/controller-affirmations.js");
 var booksRoutes = require("./controllers/controller-books.js");
+<<<<<<< HEAD
 var visualizationRoutes = require("./controllers/controller-visualization.js");
 app.use(indexRoutes, exerciseRoutes, affirmationsRoutes, booksRoutes, visualizationRoutes);
+=======
+app.use(indexRoutes, exerciseRoutes, affirmationsRoutes, booksRoutes);
+>>>>>>> 748f81eba406c729ccfa40b41390bd70b0b4e9a8
 
 
 // Requiring our models for syncing

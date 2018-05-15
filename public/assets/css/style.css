@@ -1,3 +1,7 @@
+.container {
+    background-image: url(/assets/images/mandala.png);
+}
+
 /* .grid-container {
     background-image: url();
     display: grid;

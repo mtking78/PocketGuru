@@ -1,4 +1,6 @@
 <body id="cover">
+    <!-- Navigation Bar -->
+    {{> navbar/navbar-block}}
 
     <div class="container home">
 
@@ -11,28 +13,32 @@
             <p id="affirmations-description">Affirmations have the ability to program the mind into believing stated concepts, which can be powerful when
                 thoughtfully applied! They can be used to wire your brain for success in all areas of your life.</p>
             <br>
-            <p>
-                <span id="affirmations-container">
-                    <ul>
-                        <li data-id="0">
-                            <button id="success-btn">Success</button>
-                        </li>
-                        <li>
-                            <button id="wealth-btn">Wealth</button>
-                        </li>
-                        <li>
-                            <button id="health-btn">Health</button>
-                        </li>
-                        <li>
-                            <button id="love-btn">Love</button>
-                        </li>
-                    </ul>
 
-                </span>
-
-            </p>
         </div>
-    </div>
+        <div class="row">
 
-    <script src="js/affirmations.js"></script>
+            <div class="btn-group btn-group-justified">
+
+                <a href="#" id="success-btn" class="btn btn-primary">Success</a>
+                <a href="#" id="wealth-btn" class="btn btn-primary">Wealth</a>
+                <a href="#" id="health-btn" class="btn btn-primary">Health</a>
+                <a href="#" id="love-btn" class="btn btn-primary">Love</a>
+            </div>
+
+        </div>
+        <div id="affirmations-view">
+        </div>
+
+
+
+    </div>
+    <footer class="page-footer" id="footer">
+        <div class="footer-copyright">
+            <div class="container">
+                © 2018 Copyright Text {{!--
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a> --}}
+            </div>
+        </div>
+    </footer>
+
 </body>

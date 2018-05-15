@@ -5,16 +5,12 @@ var router = express.Router();
 var db = require("../models");
 
 function isLoggedIn(req, res, next) {
-
     if (req.isAuthenticated())
-
         return next();
-
     res.redirect('/signin');
-
 }
 
-// *** Routes
+// *** Exercise Routes
 // =============================================================
 
 // Request to find and display all exercise tasks (complete/incomplete).
@@ -78,7 +74,7 @@ router.post("/exercise/create", isLoggedIn, function (req, res) {
 });
 
 // Set task completed status to true.
-router.put("/exercise/update", isLoggedIn, function (req, res) {
+router.put("/exercise/update/:id", isLoggedIn, function (req, res) {
     db.Task.update({
         completed: req.body.completed
     }, {
@@ -110,6 +106,16 @@ router.delete("/exercise/delete", isLoggedIn, function (req, res) {
             return res.json(results);
             res.status(200).end();
         }
+    });
+});
+
+// Check to see if any tasks remain incomplete
+router.get("/userinfo", isLoggedIn, function (req, res) {
+    db.user.findOne({})
+    .then(function (data) {
+        // console.log(data);
+        console.log(data.dataValues.firstname);
+        return res.json(data.dataValues.firstname);
     });
 });
 

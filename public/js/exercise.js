@@ -25,15 +25,17 @@ $(function () {
     });
 
     // Update task to true on completed.
-    $("#completeExercise").on("click", function (event) {
-        event.preventDefault();
+    $(".completeExercise").on("click", function (event) {
+
+        // event.preventDefault();
         var id = $(this).data("id");
         var taskStatus = {
             completed: true
         }
 
         // Send the PUT request.
-        $.ajax("/api/tasks/" + id, {
+        // $.ajax("/api/tasks/" + id, {
+        $.ajax("/exercise/update/" + id, {
             type: "PUT",
             data: taskStatus
         }).then(function () {
@@ -43,7 +45,7 @@ $(function () {
     });
 
     // Delete task from the database.
-    $("#removeExercise").on("click", function (event) {
+    $(".removeExercise").on("click", function (event) {
         event.preventDefault();
 
         var id = $(this).data("id");
@@ -61,7 +63,7 @@ $(function () {
 $(document).ready(function () {
     // Specific call to find sum of exercise points
     $.get("/exercise/points", function (data) {
-        console.log("Sum of exercise points: " + data);
+        // console.log("Sum of exercise points: " + data);
         $("#sumdisplay").empty();
         if (!data) {
             $("#sumdisplay").html("Get to work, slacker!");
@@ -72,11 +74,17 @@ $(document).ready(function () {
 
     // Check if any incomplete tasks exist
     $.get("/exercise/alltasks", function (data) {
-        console.log(data);
+        // console.log(data);
         if (data) {
             console.log("Not done yet.");
         } else {
             console.log("All done.");
         }
     });
+
+    // Display user name... perhaps more later
+    $.get("/userinfo", function (data) {
+        console.log("User name: " + data);
+        $(".username").html(data);
+    })
 });
