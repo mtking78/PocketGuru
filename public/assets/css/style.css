@@ -5,6 +5,9 @@
     bottom: 50%;
 }
 
+input {
+    width: 100%;
+}
 /* 
 .home {
     background-image: url(../images/mandala.png);
