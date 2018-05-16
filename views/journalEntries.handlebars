@@ -1,13 +1,13 @@
 {{!-- \Project2\views\journalEntries.handlebars --}}
 
 <body>
-    {{#each journal_entry}}
+    {{#each journals}}
     <form>
-        <label>Date: {{this.date}}</label>
+        <label>Date: {{this.createdAt}}</label>
 
         <label>Journal Entry: </label>
         <div>
-            {{this.journal_entry}}
+            {{this.title}} {{this.body}}
         </div>
     </form>
     {{/each}}

@@ -19,6 +19,32 @@
 
     </div>
     </div>
+    <div class="col-sm-8">
+        <div class="panel panel-default">
+
+            <div class="panel-heading" id="centerhead">
+                <strong>Add a New Journal Entry</strong>
+            </div>
+
+            <div class="panel-body">
+                <form class="create-form" id="addjournal">
+                    <div class="form-group">
+                        <label for="newjournaltitle" id="color-override">Title:</label>
+                        <input type="text" id="newjournaltitle" name="title">
+                        <br>
+                        <label for="newjournalbody" id="color-override">Body:</label>
+                        <textarea class="form-control" rows="10" id="newjournalbody"></textarea>
+                        <button type="submit" class="btn btn-success" id="addjournal">
+                            <span class="fa fa-thumbs-up"></span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    {{!--
     <div class="col-md-5 offset-md-3">
         <h2>New Journal Entry</h2>
         <form id="new-entry">
@@ -26,20 +52,17 @@
                 <label for="title">Title:</label>
                 <input type="text" class="form-control" id="title">
                 <br />
-                <label for="date">Date:</label>
-                <input type="text" class="form-control" id="title">
-                <br />
                 <label for="body">Body:</label>
                 <textarea class="form-control" rows="10" id="body"></textarea>
                 <br />
-                <button type="submit" class="btn btn-success submit btn-lg">Submit</button>
+                <button type="submit" class="btn btn-success  btn-lg" id="addjournal">Submit</button>
             </div>
         </form>
-    </div>
+    </div> --}}
 
     <div class="row">
         <div class="row">
-            <div class="col-6 text-center">
+            <div class="col-sm-2 mt-4">
                 <a class="btn btn-light" href="/journalEntries">
                     <div class="w3-button" id="journal">
                         <h2>Go to all Journal Entries</h2>
