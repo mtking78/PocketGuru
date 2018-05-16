@@ -5,9 +5,6 @@
     bottom: 50%;
 }
 
-input {
-    width: 100%;
-}
 /* 
 .home {
     background-image: url(../images/mandala.png);
@@ -38,7 +35,6 @@ input {
 
 .jumbotron {
     background-color: rgba(0, 255, 255, 0.303);
-    font-size: 16px;
 }
 
 .stuff {
@@ -81,10 +77,10 @@ th,
 }
 
 #affirmations-view{
-    border-bottom: 6px solid rgb(53, 162, 160);
+    border-bottom: 6px solid rgb(58, 86, 196);
     background-color: rgba(211, 211, 211, 0.556);
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2.5em;
     font-family: 'Courgette', cursive;
 }
 
