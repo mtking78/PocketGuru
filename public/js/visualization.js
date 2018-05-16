@@ -21,17 +21,26 @@
 // get_instagram_likes();
 
 // module.exports
+$(document).ready(function () {
 
+    // var visionBoardImages = ["../assets/images/elon.jpg"];
 
-var visionBoardImages = ["../assets/images/bighome.jpg", "../assets/images/luxuryhome.jpg", "../assets/images/tesla.jpg", "../assets/images/elon.jpg", "../assets/images/idealbody.jpg", "../assets/images/relationshipgoals.jpg", "../assets/images/paris.jpg"];
+    var visionBoardImages = ["../assets/images/luxuryhome.jpg", "../assets/images/tesla.jpg", "../assets/images/elon.jpg", "../assets/images/idealbody.jpg", "../assets/images/relationshipgoals.jpg", "../assets/images/paris.jpg"];
 
-function visionBoardDisplay() {
+    function visionBoardDisplay() {
 
-    for (var i = 0; i < visionBoardImages.length; i++) {
-        var pic = $("<img>");
-        pic.attr("src", src);
-        pic.addClass("vbimgs");
-        $("#vision-board-container").append(visionBoardImages[i]);
+        // var pic = $("<img>");
+        // pic.attr("src", visionBoardImages[0]);
+        // pic.addClass("vbimgs");
+        // $("#vision-board-container").append(pic);
+
+        for (var i = 0; i < visionBoardImages.length; i++) {
+            var pic = $("<img>");
+            pic.attr("src", visionBoardImages[i]);
+            pic.addClass("vbimgs");
+            $("#vision-board-container").append(pic);
+        }
     }
-}
-visionBoardDisplay();
+    visionBoardDisplay();
+
+})

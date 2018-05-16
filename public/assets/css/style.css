@@ -1,4 +1,5 @@
 /* *****Navbar***** */
+
 #navbar-logo {
     height: inherit;
     position: relative;
@@ -13,6 +14,7 @@
     color: rgb(255, 255, 255);
     width: initial;
 }
+
 /* 
 .home {
     background-image: url(../images/mandala.png);
@@ -25,7 +27,6 @@
     left: 100px;
     background-repeat: no-repeat;
     background-position: top;
-    
 }
 
 /* .work {
@@ -33,7 +34,7 @@
     background-position: center;
 } */
 
-#menuBtns{
+#menuBtns {
     /* width: 600px; */
     /* padding:zero; */
     /* position: center; */
@@ -49,15 +50,18 @@
     position: center;
 }
 
-strong{
+strong {
     font-family: 'Oxygen', sans-serif;
     color: rgb(0, 6, 175);
 }
 
-
 .title {
     font-family: 'Berkshire Swash', cursive;
     color: rgb(0, 255, 255);
+}
+
+.vbimgs {
+    width: 300px;
 }
 
 h3,
@@ -65,26 +69,28 @@ p,
 th,
 #info {
     font-family: 'Oxygen', sans-serif;
-    color:rgb(68, 75, 102);
+    color: rgb(68, 75, 102);
 }
 
 #lefthead,
 #righthead,
 #centerhead,
-#pointshead{
+#pointshead {
     background-color: rgba(0, 255, 255, 0.303);
     text-align: center;
     font-size: 1.2em;
 }
-#box{
+
+#box {
     background-color: rgba(249, 249, 249, 0);
 }
+
 #lead {
     font-size: 14px;
     color: rgba(0, 255, 255, 0.364);
 }
 
-#affirmations-view{
+#affirmations-view {
     border-bottom: 6px solid rgb(58, 86, 196);
     background-color: rgba(211, 211, 211, 0.556);
     text-align: center;
@@ -100,7 +106,7 @@ h2,
     /* color: rgb(167, 167, 167); */
 }
 
-#filler{
+#filler {
     color: rgb(0, 6, 175);
 }
 
@@ -115,7 +121,8 @@ h2,
     bottom: 0px;
 }
 
-textarea:-webkit-autofill, select:-webkit-autofill {
+textarea:-webkit-autofill,
+select:-webkit-autofill {
     background-color: rgba(249, 255, 189, 0) !important;
     background-image: none !important;
     color: rgb(0, 0, 0) !important;
