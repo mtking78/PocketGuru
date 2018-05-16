@@ -5,6 +5,12 @@
     bottom: 50%;
 }
 
+#signin-btn {
+    background-color: rgba(53, 162, 160);
+    margin-top: 5px;
+    padding: 5px;
+    color: rgba(211, 211, 211);
+}
 /* 
 .home {
     background-image: url(../images/mandala.png);
@@ -122,4 +128,5 @@ input {
     border-style: inset;
     border-color: initial;
     border-image: initial;
+    width: 100%;
 }
