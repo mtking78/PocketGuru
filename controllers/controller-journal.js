@@ -10,13 +10,23 @@ function isLoggedIn(req, res, next) {
 
 router.get("/journal", isLoggedIn, function (req, res) {
 
-    res.render("journal");
+    db.Journal.findAll({
+        where: {
+            userId: req.user.id
+        }
+    }).then(function (results) {
+        var hbsObject = {
+            journals: results
+        };
+        // console.log(results);
+        res.render("journal", hbsObject);
+    });
 });
 
-router.get("/journalEntries", function (req, res) {
+// router.get("/journalEntries", function (req, res) {
 
-    res.render("journalEntries");
-});
+//     res.render("journalEntries");
+// });
 
 // *** Book Routes
 // =============================================================
@@ -52,21 +62,22 @@ router.post("/journal/create", isLoggedIn, function (req, res) {
 });
 
 // Set book completed status to true.
-router.put("/api/books/:id", isLoggedIn, function (req, res) {
-    db.Book.update({
-        completed: req.body.completed
+router.put("/api/journal/:id", isLoggedIn, function (req, res) {
+    db.Journal.update({
+        title: req.body.title,
+        body: req.body.body
     }, {
         where: {
             id: req.params.id
         }
-    }).then(function (dbBook) {
-        res.json(dbBook);
+    }).then(function (dbJournal) {
+        res.json(dbJournal);
     });
 });
 
 // Delete book from db.
-router.delete("/books/remove/:id", isLoggedIn, function (req, res) {
-    db.Book.destroy({
+router.delete("/journal/remove/:id", isLoggedIn, function (req, res) {
+    db.Journal.destroy({
         where: {
             id: req.params.id
         }
