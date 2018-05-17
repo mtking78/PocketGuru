@@ -21,26 +21,53 @@ $(function () {
         });
     });
 
-    // Update book to true on completed.
-    $(".completeBook").on("click", function (event) {
+    // Update journal entry.
+    $(".editjournal").on("click", function (event) {
         event.preventDefault();
         var id = $(this).data("id");
-        var bookStatus = {
-            completed: true
+        var editedjournal = {
+            body: $("#editedBody").val().trim(),
         }
 
         // Send the PUT request.
-        $.ajax("/api/books/" + id, {
+        $.ajax("/api/journal/" + id, {
             type: "PUT",
-            data: bookStatus
+            data: editedJournal
         }).then(function () {
-            console.log("Book completed");
+            console.log("Journal updated");
             location.reload();
         });
     });
 
+
+    $(".update-form").on("submit", function (event) {
+        // Make sure to preventDefault on a submit event.
+        event.preventDefault();
+
+        var updatedEntry = {
+            title: $("#newjournaltitle").val().trim(),
+            body: $("#newjournalbody").val().trim()
+        };
+
+        var id = $(this).data("id");
+
+        // Send the POST request.
+        $.ajax("/api/journal/" + id, {
+            type: "PUT",
+            data: updatedEntry
+        }).then(
+            function () {
+                console.log("updated quote");
+                // Reload the page to get the updated list
+                location.assign("/");
+            }
+        );
+    });
+
+
+
     // Delete book from the database.
-    $(".removeBook").on("click", function (event) {
+    $(".removeJournal").on("click", function (event) {
         event.preventDefault();
 
         var id = $(this).data("id");
@@ -48,7 +75,7 @@ $(function () {
         // Send the DELETE request.
         $.ajax({
             type: "DELETE",
-            url: "/books/remove/" + id
+            url: "/journal/remove/" + id
         }).then(location.reload());
     });
 
