@@ -1,5 +1,5 @@
 {
-  "name": "burger",
+  "name": "PocketGuru",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fibonaccicoder/burger.git"
+    "url": "git+https://github.com/mtking78/PocketGuru.git"
   },
-  "author": "patricia martinez",
+  "author": "Matt King",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fibonaccicoder/burger/issues"
+    "url": "https://github.com/mtking78/PocketGuru/issues"
   },
-  "homepage": "https://github.com/fibonaccicoder/burger#readme",
+  "homepage": "https://github.com/mtking78/PocketGuru#readme",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
